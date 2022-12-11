@@ -1,0 +1,15 @@
+{
+    "name": "api",
+    "version": "1.0.0",
+    "description": "blogspot mock api",
+    "main": "index.js",
+    "scripts": {
+        "start": "json-server -p 3001 -w db.json -m ./node_modules/json-server-auth"
+    },
+    "author": "dpasalic",
+    "license": "ISC",
+    "dependencies": {
+        "json-server": "^0.17.1",
+        "json-server-auth": "^2.1.0"
+    }
+}
