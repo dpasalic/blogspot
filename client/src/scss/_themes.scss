@@ -1,0 +1,71 @@
+@import "./colors";
+
+$themes: (
+    light: (
+        primaryColor: $lightPrimaryColor,
+        contextColor: $lightContextColor,
+        primaryTextColor: $lightPrimaryTextColor,
+        secondaryTextColor: $lightSecondaryTextColor,
+        bgImageLarge: url("../assets/light-bg-large.jpg"),
+        bgImageMedium: url("../assets/light-bg-medium.jpg"),
+        bgImageSmall: url("../assets/light-bg-small.jpg"),
+        glassBg: $lightGlassBg,
+        glassBoxShadow: $lightGlassBoxShadow,
+        glassBorder: $lightGlassBorder,
+        elementWrapperBg: $lightElementWrapperBg,
+        elementWrapperBoxShadow: $lightElementWrapperBoxShadow,
+        elementWrapperBorder: $lightElementWrapperBorder
+    ),
+    dark: (
+        primaryColor: $darkPrimaryColor,
+        contextColor: $darkContextColor,
+        primaryTextColor: $darkPrimaryTextColor,
+        secondaryTextColor: $darkSecondaryTextColor,
+        bgImageLarge: url("../assets/dark-bg-large.jpeg"),
+        bgImageMedium: url("../assets/dark-bg-medium.jpeg"),
+        bgImageSmall: url("../assets/dark-bg-small.jpeg"),
+        glassBg: $darkGlassBg,
+        glassBoxShadow: $darkGlassBoxShadow,
+        glassBorder: $darkGlassBorder,
+        elementWrapperBg: $darkElementWrapperBg,
+        elementWrapperBoxShadow: $darkElementWrapperBoxShadow,
+        elementWrapperBorder: $darkElementWrapperBorder
+    ),
+    verdant: (
+        primaryColor: $verdantPrimaryColor,
+        contextColor: $verdantContextColor,
+        primaryTextColor: $verdantPrimaryTextColor,
+        secondaryTextColor: $verdantSecondaryTextColor,
+        bgImageLarge: url("../assets/verdant-bg-large.jpg"),
+        bgImageMedium: url("../assets/verdant-bg-medium.jpg"),
+        bgImageSmall: url("../assets/verdant-bg-small.jpg"),
+        glassBg: $verdantGlassBg,
+        glassBoxShadow: $verdantGlassBoxShadow,
+        glassBorder: $verdantGlassBorder,
+        elementWrapperBg: $verdantElementWrapperBg,
+        elementWrapperBoxShadow: $verdantElementWrapperBoxShadow,
+        elementWrapperBorder: $verdantElementWrapperBorder
+    )
+);
+
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), "#{$key}");
+                $theme-map: map-merge(
+                    $theme-map,
+                    (
+                        $key: $value,
+                    )
+                ) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}

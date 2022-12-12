@@ -1,0 +1,58 @@
+import { useState } from "react";
+import "./Input.scss";
+
+// Input used for login and signup forms
+
+const Input = ({ input, meta, type, id, label, tabIndex, autoFocus }) => {
+    const [labelFocused, setLabelFocused] = useState(false);
+    
+    const renderError = ({ error, touched }) => {
+        if (touched && error) {
+            return (
+                <div>
+                    <span className="material-symbols-outlined input-error-icon">info</span>
+                    {error}
+                </div>
+            );
+        }
+    }
+
+    const onInputFocusChange = () => {
+        if (input.value) {
+            setLabelFocused(true);
+        } else {
+            setLabelFocused(!labelFocused);
+        }
+    };
+
+    return (
+        <div className="input-wrapper">
+            <label
+                htmlFor={id}
+                className={labelFocused ? "focused" : ""}>
+                {label}
+            </label>
+            <input
+                type={type}
+                value={input.value}
+                onChange={input.onChange}
+                onFocus={onInputFocusChange}
+                onBlur={onInputFocusChange}
+                id={id}
+                tabIndex={tabIndex}
+                autoFocus={autoFocus}
+                autoComplete="new-password"
+            />
+            <div className="input-error">
+                {renderError(meta)}
+            </div>
+        </div>
+    );
+};
+
+export default Input;
+
+// finish submit form
+// redux form selector getFormValues
+// rewrite app - abandon redux form
+// use redux only for cached posts, users etc

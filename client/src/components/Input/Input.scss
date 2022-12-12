@@ -1,0 +1,59 @@
+@import "../../scss/themes";
+@import "../../scss/sizes";
+
+.input-wrapper {
+    position: relative;
+}
+
+label {
+    position: absolute;
+    top: $inputPadding;
+    left: 15px;
+    font-size: $primaryFontSize;
+    padding: 0 10px;
+    border-radius: $borderRadius2;
+    cursor: text;
+    transition: top $transitionTime, background-color $transitionTime;
+}
+label.focused {
+    @include themify($themes) {
+        background-color: themed("contextColor");
+    }
+    top: -$inputPadding;
+}
+
+input {
+    @include themify($themes) {
+        border-color: themed("primaryColor");
+        color: themed("primaryTextColor");
+    }
+    width: 100%;
+    padding: $inputPadding;
+    font-size: $primaryFontSize;
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: $borderRadius2;
+    transition-duration: $transitionTime;
+}
+
+input:focus {
+    @include themify($themes) {
+        box-shadow: 0 0 3px 2px themed("primaryColor");
+    }
+}
+
+.input-error {
+    height: 45px;
+    padding: 3px 5px;
+    font-size: $secondaryFontSize;
+    color: $errorColor;
+}
+
+.input-error-icon {
+    padding-right: 5px;
+    margin-top: -1px;
+    font-size: 20px;
+    vertical-align: middle;
+}

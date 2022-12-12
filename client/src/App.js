@@ -1,6 +1,11 @@
+import Layout from "./components/Layout";
+import Router from "./router/Router";
+
 const App = () => {
     return (
-        <div>App</div>
+        <Layout>
+            <Router />
+        </Layout>
     );
 };
 
