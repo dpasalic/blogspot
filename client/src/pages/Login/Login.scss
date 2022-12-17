@@ -1,0 +1,111 @@
+@import "../../scss/themes";
+@import "../../scss/sizes";
+
+h1.login-header {
+    font-size: $h1FontSize;
+    padding: 10px 25px;
+}
+
+.login-form-wrapper {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    align-content: center;
+}
+@media (max-height: 480px) {
+    .login-form-wrapper {
+        align-content: flex-start;
+    }
+}
+
+.login-form-wrapper > form {
+    @include themify($themes) {
+        background-color: themed("elementWrapperBg");
+    }
+
+    width: 100%;
+    padding: 40px;
+    border-radius: $borderRadius2;
+    transition-duration: $transitionTime;
+}
+
+.login-form-wrapper > form > button {
+    @include themify($themes) {
+        background-color: themed("primaryColor");
+        color: themed("secondaryTextColor");
+    }
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: $borderRadius2;
+    font-size: $primaryFontSize;
+    outline: none;
+    transition-duration: $transitionTime;
+}
+
+@media (hover: hover) {
+    .login-form-wrapper > form > button:hover {
+        @include themify($themes) {
+            box-shadow: 0 0 3px 2px themed("primaryColor");
+        }
+    }
+}
+.login-form-wrapper > form > button:active {
+    @include themify($themes) {
+        box-shadow: 0 0 3px 2px themed("secondaryTextColor");
+    }
+}
+.login-form-wrapper > form > button:focus-visible {
+    @include themify($themes) {
+        background-color: themed("contextColor");
+        color: themed("primaryTextColor");
+    }
+}
+
+.login-submit-icon {
+    font-size: 22px;
+    vertical-align: middle;
+    margin-top: -3px;
+    padding-right: 10px;
+}
+
+.login-submit-error {
+    text-align: center;
+    margin-top: 30px;
+    height: 30px;
+    font-size: $primaryFontSize;
+    color: $errorColor;
+}
+
+.login-error-icon {
+    padding-right: 5px;
+    margin-top: -5px;
+    font-size: 22px;
+    vertical-align: middle;
+}
+
+.login-helper-text {
+    text-align: center;
+    font-size: $secondaryFontSize;
+    padding-top: 10px;
+}
+
+.login-link {
+    color: inherit;
+    margin-left: 5px;
+}
+
+@media (max-width: 960px) {
+    .login-form-wrapper > form {
+        @include themify($themes) {
+            border: themed("elementWrapperBorder");
+            box-shadow: themed("elementWrapperBoxShadow");
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .login-form-wrapper > form {
+        padding: 20px;
+    }
+}

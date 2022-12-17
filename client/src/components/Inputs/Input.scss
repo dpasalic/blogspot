@@ -44,6 +44,52 @@ input:focus {
     }
 }
 
+.toggle-visibility {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 15px;
+    top: 13px;
+    cursor: pointer;
+}
+.toggle-visibility > * {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.toggle-visibility > .crossing-line-wrapper {
+    width: 20px;
+    height: 20px;
+    transform: rotate(-45deg);
+    transform-origin: -10px 18px;
+}
+.crossing-line-wrapper > .crossing-line {
+    @include themify($themes) {
+        background-color: themed("primaryTextColor");
+        border-right: 1px solid themed("contextColor");
+    }
+    box-sizing: content-box;
+    display: block;
+    margin: auto;
+    width: 2px;
+}
+.crossing-line-wrapper > .visible {
+    animation: visible $transitionTime forwards;
+}
+.crossing-line-wrapper > .hidden {
+    animation: hidden $transitionTime forwards;
+}
+@keyframes visible {
+    from { height: 120%; }
+    to { height: 0; }
+}
+@keyframes hidden {
+    from { height: 0; }
+    to { height: 120%; }
+}
+
 .input-error {
     height: 45px;
     padding: 3px 5px;

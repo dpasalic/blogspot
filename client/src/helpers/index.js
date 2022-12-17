@@ -14,3 +14,25 @@ export const parseJwt = (token) => {
 
     return JSON.parse(jsonPayload);
 };
+
+// Function for validating input fields
+// related to user (first name, last name, email, password)
+export const validateLoginForm = (email, password) => {
+    const errors = {};
+    
+    // Email validation
+    if (!email) {
+        errors.email = "Email is required"
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+        errors.email = "Invalid email address";
+    }
+
+    // Password validation
+    if (!password) {
+        errors.password = "Password is required";
+    } else if (password.length < 5) {
+        errors.password = "Minimum 5 characters long";
+    }
+
+    return errors;
+}

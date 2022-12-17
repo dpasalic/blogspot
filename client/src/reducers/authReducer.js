@@ -16,6 +16,6 @@ const authReducer = (state = INITIAL_STATE, action) => {
         default:
             return state;
     }
-}; // call action creators from login component
+};
 
 export default authReducer;

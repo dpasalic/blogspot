@@ -38,6 +38,14 @@
 .container {
     height: 100%;
     width: $containerWidthLarge;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+    @include themify($themes) {
+        border: 5px solid themed("primaryTextColor");
+    }
+    transition: none;
 }
 
 @media (min-width: 961px) {
