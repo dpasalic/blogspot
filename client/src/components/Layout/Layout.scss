@@ -43,7 +43,7 @@
 
 button:focus-visible {
     @include themify($themes) {
-        border: 5px solid themed("primaryTextColor");
+        border: 5px solid themed("primaryTextColor") !important;
     }
     transition: none;
 }

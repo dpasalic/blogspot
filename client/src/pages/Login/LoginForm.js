@@ -24,7 +24,6 @@ const LoginForm = ({ onFormSubmit, loginError, loader }) => {
             setErrors(errors);
         }
     };
-    console.log("hehe");
 
     useEffect(() => {
         if (validate) {
@@ -37,7 +36,7 @@ const LoginForm = ({ onFormSubmit, loginError, loader }) => {
         <div className="login-form-wrapper">
             <h1 className="login-header">Log in</h1>
 
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} noValidate>
                 <TextInput
                     id="email"
                     label="Email"

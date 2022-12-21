@@ -1,0 +1,160 @@
+@import "../../scss/themes";
+@import "../../scss/sizes";
+
+h1.signup-header {
+    font-size: $h1FontSize;
+    padding: 10px 25px;
+}
+
+.signup-form-wrapper {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    align-content: center;
+}
+@media (max-height: 480px) {
+    .signup-form-wrapper {
+        align-content: flex-start;
+    }
+}
+
+.signup-form-wrapper > form {
+    @include themify($themes) {
+        background-color: themed("elementWrapperBg");
+    }
+
+    width: 100%;
+    padding: 40px;
+    border-radius: $borderRadius2;
+    overflow: hidden;
+    transition-duration: $transitionTime;
+}
+
+.section-container {
+    display: flex;
+    width: calc(200% + 40px);
+}
+.section {
+    width: 100%;
+    transition-duration: $transitionTime;
+}
+.section:nth-child(2) {
+    margin-left: 40px;
+}
+.switch-section {
+    transform: translateX(calc(-100% - 40px));
+}
+
+.buttons-section {
+    display: flex;
+}
+.buttons-section > button > * {
+    display: inline-block;
+}
+.buttons-section > button {
+    @include themify($themes) {
+        background-color: themed("primaryColor");
+        color: themed("secondaryTextColor");
+    }
+    width: 100%;
+    height: 35px;
+    padding-top: 0px;
+    line-height: 35px;
+    border: none;
+    border-radius: $borderRadius2;
+    font-size: $primaryFontSize;
+    outline: none;
+    overflow: hidden;
+    transition-duration: $transitionTime;
+}
+
+.buttons-section.switched > button:first-child {
+    @include themify($themes) {
+        color: themed("primaryColor");
+        border: 1px solid themed("primaryColor");
+    }
+    background-color: transparent;
+    margin-right: 10px;
+    padding-left: 10px;
+    width: 25%;
+}
+
+@media (hover: hover) {
+    .buttons-section > button:hover {
+        @include themify($themes) {
+            box-shadow: 0 0 3px 2px themed("primaryColor");
+        }
+    }
+}
+.buttons-section > button:active {
+    @include themify($themes) {
+        box-shadow: 0 0 3px 2px themed("primaryTextColor");
+    }
+}
+.buttons-section > button:focus-visible {
+    @include themify($themes) {
+        background-color: themed("contextColor") !important;
+        color: themed("primaryTextColor") !important;
+    }
+    line-height: 25px;
+}
+
+.hide-submit-button {
+    width: 0px !important;
+}
+.hide-submit-button > * {
+    display: none;
+}
+
+.arrow-switch-icon {
+    font-size: 22px;
+    vertical-align: middle;
+    padding-right: 10px;
+    margin-top: -2px;
+}
+.signup-submit-icon {
+    font-size: 22px;
+    vertical-align: middle;
+    padding-right: 10px;
+    margin-top: -2px;
+}
+
+.signup-submit-error {
+    text-align: center;
+    padding-top: 30px;
+    font-size: $primaryFontSize;
+    color: $errorColor;
+}
+
+.signup-error-icon {
+    padding-right: 5px;
+    margin-top: -2px;
+    font-size: 22px;
+    vertical-align: middle;
+}
+
+.signup-helper-text {
+    text-align: center;
+    font-size: $secondaryFontSize;
+    padding-top: 10px;
+}
+
+.signup-link {
+    color: inherit;
+    margin-left: 5px;
+}
+
+@media (max-width: 960px) {
+    .signup-form-wrapper > form {
+        @include themify($themes) {
+            border: themed("elementWrapperBorder");
+            box-shadow: themed("elementWrapperBoxShadow");
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-form-wrapper > form {
+        padding: 20px;
+    }
+}

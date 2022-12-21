@@ -1,12 +1,17 @@
-import { useState, useRef } from "react";
-import "./Input.scss";
+import { useState, useRef, useEffect } from "react";
+import "../../components/Inputs/Input.scss";
 
-// Input used for login and signup forms
+// Input used for email inside signup form
+// Made separately to implement focus on input
+// field after switching to second form section
 
-const PasswordInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) => {
+const EmailInput = ({ id, label, value, onChange, tabIndex, error, transitionEnd }) => {
     const [labelFocused, setLabelFocused] = useState(false);
-    const [passwordVisible, setPasswordVisible] = useState(false);
     const ref = useRef(null);
+
+    useEffect(() => {
+        if (transitionEnd) { ref.current.focus() }
+    }, [transitionEnd]);
 
     const onInputFocusChange = () => {
         if (value) {
@@ -14,11 +19,6 @@ const PasswordInput = ({ id, label, value, onChange, tabIndex, autoFocus, error 
         } else {
             setLabelFocused(!labelFocused);
         }
-    };
-
-    const onPasswordVisibilityChange = () => {
-        setPasswordVisible(!passwordVisible);
-        ref.current.focus();
     };
 
     return (
@@ -31,26 +31,14 @@ const PasswordInput = ({ id, label, value, onChange, tabIndex, autoFocus, error 
             <input
                 ref={ref}
                 id={id}
-                type={passwordVisible ? "text" : "password"}
+                type="email"
                 value={value}
                 onChange={onChange}
                 onFocus={onInputFocusChange}
                 onBlur={onInputFocusChange}
                 tabIndex={tabIndex}
-                autoFocus={autoFocus}
                 autoComplete="new-password"
             />
-
-            <div className="toggle-visibility">
-                <span
-                    onClick={onPasswordVisibilityChange}
-                    className="material-symbols-outlined password-visibility-button">
-                    visibility
-                </span>
-                <span onClick={onPasswordVisibilityChange} className="crossing-line-wrapper">
-                    <span className={`crossing-line ${passwordVisible ? "visible" : "hidden"}`}></span>
-                </span>
-            </div>
 
             <div className="input-error">
                 {error ?
@@ -63,4 +51,4 @@ const PasswordInput = ({ id, label, value, onChange, tabIndex, autoFocus, error 
     );
 };
 
-export default PasswordInput;
+export default EmailInput;

@@ -1,8 +1,9 @@
+import { createUser } from "../api";
 import blogspotAPI from "../api/blogspotAPI";
 import { getRandomInt, parseJwt } from "../helpers";
 import {
     SET_THEME, SHOW_LOADER,
-    SIGN_UP, LOG_IN, LOG_IN_ERROR, LOG_OUT,
+    SIGN_UP, SIGN_UP_ERROR, LOG_IN, LOG_IN_ERROR, LOG_OUT,
     CREATE_USER, GET_USER,
     CREATE_BLOG, GET_BLOG, GET_BLOGS
 } from "./types";
@@ -20,15 +21,6 @@ export const showLoader = (showLoaderBool) => {
 // Action creators that call API use Redux Thunk
 // They return function with dispatch function as parameter
 // to manually dispatch the results of API call to the reducers
-export const signUp = (formValues) => async dispatch => {
-    const response = await blogspotAPI.post("/users", {
-        ...formValues,
-        id: getRandomInt(10000, 99999),
-        role: "user"
-    });
-
-    dispatch({ type: SIGN_UP, payload: response.data });
-};
 
 export const logIn = (formValues) => async dispatch => {
     try {

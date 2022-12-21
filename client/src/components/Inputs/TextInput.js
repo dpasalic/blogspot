@@ -28,7 +28,7 @@ const TextInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) =
                 onChange={onChange}
                 onFocus={onInputFocusChange}
                 onBlur={onInputFocusChange}
-                // tabIndex={tabIndex}
+                tabIndex={tabIndex}
                 autoFocus={autoFocus}
                 autoComplete="new-password"
             />
