@@ -77,7 +77,15 @@ h1.login-header {
     color: $errorColor;
 }
 
-.login-error-icon {
+.signup-success {
+    text-align: center;
+    margin-bottom: 15px;
+    height: 30px;
+    font-size: $primaryFontSize;
+    color: $successColor;
+}
+
+.login-error-icon, .signup-success-icon {
     padding-right: 5px;
     margin-top: -5px;
     font-size: 22px;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import TextInput from "../../components/Inputs/TextInput";
 import PasswordInput from "../../components/Inputs/PasswordInput";
 import Loader from "../../components/Loader";
@@ -11,6 +11,8 @@ const LoginForm = ({ onFormSubmit, loginError, loader }) => {
     const [password, setPassword] = useState("");
     const [validate, setValidate] = useState(false);
     const [errors, setErrors] = useState({});
+
+    const { state } = useLocation();
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -37,6 +39,13 @@ const LoginForm = ({ onFormSubmit, loginError, loader }) => {
             <h1 className="login-header">Log in</h1>
 
             <form onSubmit={onSubmit} noValidate>
+                {state && state.signupSuccess && !loader && !loginError ?
+                    <div className="signup-success">
+                        <span>
+                            <span className="material-symbols-outlined signup-success-icon">info</span>
+                            You signed up successfully!
+                        </span>
+                    </div> : null}
                 <TextInput
                     id="email"
                     label="Email"

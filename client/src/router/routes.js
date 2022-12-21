@@ -22,8 +22,8 @@ export default [
         element: <ProtectedRoute><BlogList /></ProtectedRoute>,
         errorElement: <ErrorPage />
     },
-    { path: LOGIN, element: <PublicRoute><Login /></PublicRoute> },
     { path: SIGNUP, element: <PublicRoute><Signup /></PublicRoute> },
+    { path: LOGIN, element: <PublicRoute><Login /></PublicRoute> },
 
     { path: USER, element: <ProtectedRoute><UserShow /></ProtectedRoute> },
     { path: BLOG, element: <ProtectedRoute><BlogShow /></ProtectedRoute> }

@@ -14,7 +14,7 @@ const Signup = () => {
         createUser({ firstName, lastName, email, password })
             .then((res) => {
                 setLoader(false);
-                navigate("/login");
+                navigate("/login", { state: { signupSuccess: true } });
             })
             .catch((err) => {
                 console.log(err);

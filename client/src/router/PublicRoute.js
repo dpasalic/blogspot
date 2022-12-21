@@ -15,7 +15,7 @@ const PublicRoute = ({ authUser, isLoggedIn, children }) => {
         if (isLoggedIn) {
             // Checking if user visited protected page before logging in
             // and redirecting there, if not redirecting to home page
-            const path = state ? state.requestedPath : "/";
+            const path = state && state.requestedPath ? state.requestedPath : "/";
             navigate(path);
         }
     }, [isLoggedIn]);

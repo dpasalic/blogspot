@@ -45,7 +45,7 @@ export const validateSignupFirstSection = (firstName, lastName) => {
         errors.firstName = "First name required";
     } else if(/\d/.test(firstName)) {
         errors.firstName = "Numbers not allowed";
-    } else if(/[,<.>/?;:'"[{}\]\\\-_=+*!@#$%\^&()]/.test(firstName)) {
+    } else if(/[,<.>/?;:'"[{}\]\\\-_=+*!@#$%\^&()`~]/.test(firstName)) {
         errors.firstName = "Special characters not allowed";
     } else if (firstName.length < 2) {
         errors.firstName = "Minimum two characters";

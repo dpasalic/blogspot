@@ -2,7 +2,7 @@ import "./Layout.scss";
 
 const Layout = ({ children }) => {
     return (
-        <div className="theme-light">
+        <div className="theme-dark">
             <div className="body">
                 <div className="glass-wrapper">
                     <div className="container">
