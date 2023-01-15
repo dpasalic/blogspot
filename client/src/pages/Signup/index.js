@@ -23,6 +23,8 @@ const Signup = () => {
             });
     };
 
+    // Check if user already exists
+
     return <SignupForm
         onFormSubmit={onFormSubmit}
         signupError={signupError}

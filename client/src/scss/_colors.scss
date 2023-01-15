@@ -1,7 +1,7 @@
-$lightPrimaryColor: #1279d4;
-//$lightSecondaryColor: 
-$lightContextColor: #fff;
-$lightPrimaryTextColor: #333;
+$lightPrimaryColor: rgb(18, 121, 212);
+$lightContextColor: rgb(255, 255, 255);
+$lightIndicatorColor: rgb(51, 51, 51);
+$lightPrimaryTextColor: rgb(51, 51, 51);
 $lightSecondaryTextColor: #fff;
 $lightGlassBg: rgba(255, 255, 255, 0.25);
 $lightGlassBoxShadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -10,9 +10,10 @@ $lightElementWrapperBg: rgba(255, 255, 255, 0.5);
 $lightElementWrapperBoxShadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;
 $lightElementWrapperBorder: 1px solid rgba(255, 255, 255, 1);
 
-$darkPrimaryColor: #9d2f6f;
-$darkContextColor: #000;
-$darkPrimaryTextColor: #fff;
+$darkPrimaryColor: rgb(157, 47, 111);
+$darkContextColor: rgb(0, 0, 0);
+$darkIndicatorColor: rgb(100, 100, 100);
+$darkPrimaryTextColor: rgb(255, 255, 255);
 $darkSecondaryTextColor: #fff;
 $darkGlassBg: rgba(0, 0, 0, 0.25);
 $darkGlassBoxShadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -21,9 +22,10 @@ $darkElementWrapperBg: rgba(0, 0, 0, 0.7);
 $darkElementWrapperBoxShadow: rgba(0, 0, 0, 0.7) 0px 3px 8px;
 $darkElementWrapperBorder: 1px solid rgba(0, 0, 0, 1);
 
-$verdantPrimaryColor: #10ce1d;
-$verdantContextColor: #000;
-$verdantPrimaryTextColor: #fff;
+$verdantPrimaryColor: rgb(16, 206, 29);
+$verdantContextColor: rgb(0, 0, 0);
+$verdantIndicatorColor: rgb(215, 215, 215);
+$verdantPrimaryTextColor: rgb(255, 255, 255);
 $verdantSecondaryTextColor: #fff;
 $verdantGlassBg: rgba(0, 100, 0, 0.25);
 $verdantGlassBoxShadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;

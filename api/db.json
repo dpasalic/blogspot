@@ -1,51 +1,81 @@
 {
-  "users": [
-    {
-      "email": "admin@mailg.com",
-      "password": "$2a$10$ult8Wbc4s7GH2Mn2mtvu..fDvGYQt1uInlrkEHUsYcJM5dXv8Mmje",
-      "firstName": "admin",
-      "lastName": "adminovic",
-      "id": 11111,
-      "role": "admin"
-    },
-    {
-      "email": "dpasalic@mailg.com",
-      "password": "$2a$10$73V5.bq/IMicjNUEx606Guo1oy89yRV2pOrrrjsZhlF9nSiYYkIIm",
-      "id": 99999,
-      "role": "user",
-      "firstName": "Demir",
-      "lastName": "Pasalic"
-    }
-  ],
-  "blogs": [
-    {
-      "id": 999999,
-      "title": "Lorem ipsum",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
-      "userId": 99999,
-      "createdAt": 1657696487,
-      "likes": 0,
-      "dislikes": 0,
-      "comments": 0
-    }
-  ],
-  "comments": [
-    {
-      "id": 9999999,
-      "body": "Cras vulputate dapibus mi, ac consequat nulla blandit ut. Nunc ornare diam rhoncus tellus semper fringilla.",
-      "blogId": 999999,
-      "userId": 99999,
-      "createdAt": 1657804476
-    }
-  ],
-  "interactions": [
-    {
-      "id": 9999999,
-      "blogId": 999999,
-      "userId": 99999,
-      "liked": true,
-      "disliked": false,
-      "createdAt": 1657804440
-    }
-  ]
+    "users": [
+        {
+            "email": "admin@mailg.com",
+            "password": "$2a$10$ult8Wbc4s7GH2Mn2mtvu..fDvGYQt1uInlrkEHUsYcJM5dXv8Mmje",
+            "firstName": "admin",
+            "lastName": "",
+            "id": 11111,
+            "role": "admin"
+        },
+        {
+            "email": "dpasalic@mailg.com",
+            "password": "$2a$10$73V5.bq/IMicjNUEx606Guo1oy89yRV2pOrrrjsZhlF9nSiYYkIIm",
+            "id": 99999,
+            "role": "user",
+            "firstName": "Demir",
+            "lastName": "Pasalic"
+        }
+    ],
+    "blogs": [
+        {
+            "id": 999999,
+            "title": "Lorem ipsum",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
+            "userId": 99999,
+            "createdAt": 1657696487,
+            "likes": 0,
+            "dislikes": 0,
+            "comments": 0
+        },
+        {
+            "id": 431678,
+            "title": "Everything begins and ends in your mind",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
+            "userId": 99999,
+            "createdAt": 1657696488,
+            "likes": 0,
+            "dislikes": 0,
+            "comments": 0
+        },
+        {
+            "id": 720195,
+            "title": "Ide gas meeen",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
+            "userId": 11111,
+            "createdAt": 1657696489,
+            "likes": 0,
+            "dislikes": 0,
+            "comments": 0
+        },
+        {
+            "id": 400129,
+            "title": "I love you",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
+            "userId": 99999,
+            "createdAt": 1657696490,
+            "likes": 0,
+            "dislikes": 0,
+            "comments": 0
+        }
+    ],
+    "comments": [
+        {
+            "id": 9999999,
+            "body": "Cras vulputate dapibus mi, ac consequat nulla blandit ut. Nunc ornare diam rhoncus tellus semper fringilla.",
+            "blogId": 999999,
+            "userId": 99999,
+            "createdAt": 1657804476
+        }
+    ],
+    "interactions": [
+        {
+            "id": 99999999,
+            "blogId": 999999,
+            "userId": 99999,
+            "liked": true,
+            "disliked": false,
+            "createdAt": 1657804440
+        }
+    ]
 }

@@ -4,7 +4,7 @@ import TextInput from "../../components/Inputs/TextInput";
 import PasswordInput from "../../components/Inputs/PasswordInput";
 import Loader from "../../components/Loader";
 import { validateLoginForm } from "../../helpers";
-import "./Login.scss";
+import "./login.scss";
 
 const LoginForm = ({ onFormSubmit, loginError, loader }) => {
     const [email, setEmail] = useState("");
@@ -39,6 +39,8 @@ const LoginForm = ({ onFormSubmit, loginError, loader }) => {
             <h1 className="login-header">Log in</h1>
 
             <form onSubmit={onSubmit} noValidate>
+                // Add message that informs user when session expires
+                // Add message that tells user to log in first to visit protected page
                 {state && state.signupSuccess && !loader && !loginError ?
                     <div className="signup-success">
                         <span>

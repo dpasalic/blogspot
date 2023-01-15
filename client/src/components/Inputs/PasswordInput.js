@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import "./Input.scss";
+import "./input.scss";
 
 // Input used for login and signup forms
 

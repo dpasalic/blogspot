@@ -6,7 +6,7 @@ import EmailInput from "./EmailInput";
 import Buttons from "./Buttons";
 import Loader from "../../components/Loader";
 import { validateSignupFirstSection, validateSignupSecondSection } from "../../helpers";
-import "./Signup.scss";
+import "./signup.scss";
 
 const SignupForm = ({ onFormSubmit, signupError, loader }) => {
     const [firstName, setFirstName] = useState("");

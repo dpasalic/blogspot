@@ -2,7 +2,7 @@
 @import "../../scss/sizes";
 
 h1.login-header {
-    font-size: $h1FontSize;
+    font-size: $h1FontSizeLarge;
     padding: 10px 25px;
 }
 
@@ -12,9 +12,10 @@ h1.login-header {
     align-items: center;
     align-content: center;
 }
-@media (max-height: 480px) {
+@media (max-height: 640px) {
     .login-form-wrapper {
         align-content: flex-start;
+        margin-top: 140px;
     }
 }
 
@@ -38,7 +39,7 @@ h1.login-header {
     height: 35px;
     border: none;
     border-radius: $borderRadius2;
-    font-size: $primaryFontSize;
+    font-size: $primaryFontSizeLarge;
     outline: none;
     transition-duration: $transitionTime;
 }
@@ -73,7 +74,7 @@ h1.login-header {
     text-align: center;
     margin-top: 30px;
     height: 30px;
-    font-size: $primaryFontSize;
+    font-size: $primaryFontSizeLarge;
     color: $errorColor;
 }
 
@@ -81,7 +82,7 @@ h1.login-header {
     text-align: center;
     margin-bottom: 15px;
     height: 30px;
-    font-size: $primaryFontSize;
+    font-size: $primaryFontSizeLarge;
     color: $successColor;
 }
 
@@ -94,7 +95,7 @@ h1.login-header {
 
 .login-helper-text {
     text-align: center;
-    font-size: $secondaryFontSize;
+    font-size: $secondaryFontSizeLarge;
     padding-top: 10px;
 }
 
@@ -113,7 +114,19 @@ h1.login-header {
 }
 
 @media (max-width: 480px) {
+    h1.login-header {
+        font-size: $h1FontSizeMedium;
+    }
     .login-form-wrapper > form {
         padding: 20px;
+    }
+    .login-form-wrapper > form > button {
+        font-size: $primaryFontSizeMedium;
+    }
+    .login-submit-error, .signup-success {
+        font-size: $primaryFontSizeMedium;
+    }
+    .login-helper-text {
+        font-size: $secondaryFontSizeMedium;
     }
 }

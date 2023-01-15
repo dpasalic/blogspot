@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import "../../components/Inputs/Input.scss";
+import "../../components/Inputs/input.scss";
 
 // Input used for email inside signup form
 // Made separately to implement focus on input

@@ -13,7 +13,7 @@ const ProtectedRoute = ({ authUser, isLoggedIn, children }) => {
     const { pathname } = useLocation();
 
     // Calling authUser action creator that checks and validates JWT token
-    useEffect(() => { authUser(); }, []);
+    useEffect(() => { authUser() }, []);
 
     useEffect(() => {
         if (isLoggedIn === false) {

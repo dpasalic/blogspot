@@ -1,0 +1,95 @@
+@import "../../scss/themes";
+@import "../../scss/sizes";
+
+.blog-card {
+    @include themify($themes) {
+        background-color: themed("elementWrapperBg");
+    }
+
+    margin-top: 30px;
+    padding: 25px;
+    border: 1px solid transparent;
+    border-radius: $borderRadius2;
+    transition-duration: $transitionTime;
+    cursor: pointer;
+}
+.blog-card:active {
+    opacity: 0.8;
+}
+
+@media only screen and (hover: hover) {
+    .blog-card:hover {
+        @include themify($themes) {
+            border: 1px solid rgba(themed("indicatorColor"), 0.5);
+        }
+    }
+
+    .blog-card-footer > button:hover {
+        @include themify($themes) {
+            background-color: rgba(themed("primaryColor"), 0.1);
+        }
+    }
+}
+.blog-card-header {
+    font-size: $h2FontSizeLarge;
+    margin-top: 20px;
+}
+.blog-card-user {
+    font-size: $secondaryFontSizeLarge;
+    margin-top: 10px;
+}
+.blog-card-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    position: relative;
+    bottom: -20px;
+    left: -25px;
+    width: calc(100% + 50px);
+}
+.blog-card-footer > button {
+    all: unset;
+    display: flex;
+    border: 3px solid transparent;
+    padding: 5px 25px;
+    border-radius: $borderRadius2;
+    transition: $transitionTime;
+    cursor: default;
+}
+.blog-card-footer > button:active {
+    @include themify($themes) {
+        box-shadow: 0 0 3px 2px themed("primaryTextColor");
+    }
+}
+.blog-card-footer > button > .icon {
+    font-size: 22px;
+}
+.blog-card-footer > button > .counter {
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+@media (max-width: 960px) {
+    .blog-card {
+        @include themify($themes) {
+            border: themed("elementWrapperBorder");
+            box-shadow: themed("elementWrapperBoxShadow");
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-card {
+        padding: 20px;
+    }
+    .blog-card-header {
+        font-size: $h2FontSizeMedium;
+    }
+    .blog-card-user {
+        font-size: $secondaryFontSizeMedium;
+    }
+    .blog-card-footer > button {
+        padding: 3px 15px;
+    }
+}

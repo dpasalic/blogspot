@@ -1,0 +1,13 @@
+@import "../../scss/themes";
+@import "../../scss/sizes";
+
+.tooltip {
+    @include themify($themes) {
+        background-color: themed("elementWrapperBg");
+    }
+
+    font-size: 12px;
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: $borderRadius2;
+}

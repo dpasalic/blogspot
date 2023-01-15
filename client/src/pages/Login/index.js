@@ -9,7 +9,6 @@ const Login = ({ logIn, loginError, showLoader, loader }) => {
     };
 
     return (
-        // add password show/hide
         <LoginForm
             onFormSubmit={onFormSubmit}
             loginError={loginError}

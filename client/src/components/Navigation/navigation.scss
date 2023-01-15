@@ -1,0 +1,71 @@
+@import "../../scss/themes";
+@import "../../scss/sizes";
+
+.navigation {
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 0 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99999;
+    transition: $transitionTime;
+}
+.navigation-high {
+    height: 140px;
+}
+.navigation-low {
+    @include themify($themes) {
+        background-color: themed("elementWrapperBg");
+    }
+
+    height: 70px;
+    border-bottom-right-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .navigation-low {
+        @include themify($themes) {
+            background-color: rgba(themed("contextColor"), .9);
+        }
+    }
+}
+
+.navigation > .logo > img {
+    height: 50px;
+}
+
+@media only screen and (max-width: 960px) {
+    .navigation {
+        padding: 0 calc((100% - $containerWidthSmall));
+        border-radius: 0 0 $borderRadius1 $borderRadius1;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .navigation {
+        padding: 0 calc((100% - $containerWidthSmall) / 2);
+        border-radius: 0;
+    }
+}
+
+.switch-button-path {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50.5%);
+    width: 100px;
+    height: 30px;
+    background-color: red;
+    cursor: grab;
+}
+
+.switch-button-picker {
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    background-color: green;
+}

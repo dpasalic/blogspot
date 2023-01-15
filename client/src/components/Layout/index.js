@@ -1,10 +1,13 @@
-import "./Layout.scss";
+import { connect } from "react-redux";
+import Navigation from "../Navigation";
+import "./layout.scss";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, theme }) => {
     return (
-        <div className="theme-dark">
+        <div className={`theme-${theme}`}>
             <div className="body">
                 <div className="glass-wrapper">
+                    <Navigation />
                     <div className="container">
                         {children}
                     </div>
@@ -14,4 +17,10 @@ const Layout = ({ children }) => {
     );
 };
 
-export default Layout;
+const mapStateToProps = (state) => {
+    return { theme: state.theme };
+};
+
+export default connect(
+    mapStateToProps
+)(Layout);

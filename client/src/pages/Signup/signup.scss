@@ -2,7 +2,7 @@
 @import "../../scss/sizes";
 
 h1.signup-header {
-    font-size: $h1FontSize;
+    font-size: $h1FontSizeLarge;
     padding: 10px 25px;
 }
 
@@ -12,9 +12,10 @@ h1.signup-header {
     align-items: center;
     align-content: center;
 }
-@media (max-height: 480px) {
+@media only screen and (max-height: 640px) {
     .signup-form-wrapper {
         align-content: flex-start;
+        margin-top: 140px;
     }
 }
 
@@ -62,7 +63,7 @@ h1.signup-header {
     line-height: 35px;
     border: none;
     border-radius: $borderRadius2;
-    font-size: $primaryFontSize;
+    font-size: $primaryFontSizeLarge;
     outline: none;
     overflow: hidden;
     transition-duration: $transitionTime;
@@ -79,7 +80,7 @@ h1.signup-header {
     width: 25%;
 }
 
-@media (hover: hover) {
+@media only screen and (hover: hover) {
     .buttons-section > button:hover {
         @include themify($themes) {
             box-shadow: 0 0 3px 2px themed("primaryColor");
@@ -122,7 +123,7 @@ h1.signup-header {
 .signup-submit-error {
     text-align: center;
     padding-top: 30px;
-    font-size: $primaryFontSize;
+    font-size: $primaryFontSizeLarge;
     color: $errorColor;
 }
 
@@ -135,7 +136,7 @@ h1.signup-header {
 
 .signup-helper-text {
     text-align: center;
-    font-size: $secondaryFontSize;
+    font-size: $secondaryFontSizeLarge;
     padding-top: 10px;
 }
 
@@ -144,7 +145,7 @@ h1.signup-header {
     margin-left: 5px;
 }
 
-@media (max-width: 960px) {
+@media only screen and (max-width: 960px) {
     .signup-form-wrapper > form {
         @include themify($themes) {
             border: themed("elementWrapperBorder");
@@ -154,7 +155,19 @@ h1.signup-header {
 }
 
 @media (max-width: 480px) {
+    h1.signup-header {
+        font-size: $h1FontSizeMedium;
+    }
     .signup-form-wrapper > form {
         padding: 20px;
+    }
+    .signup-form-wrapper > form > button {
+        font-size: $primaryFontSizeMedium;
+    }
+    .signup-submit-error {
+        font-size: $primaryFontSizeMedium;
+    }
+    .signup-helper-text {
+        font-size: $secondaryFontSizeMedium;
     }
 }

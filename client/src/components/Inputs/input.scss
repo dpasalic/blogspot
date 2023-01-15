@@ -9,7 +9,7 @@ label {
     position: absolute;
     top: $inputPadding;
     left: 15px;
-    font-size: $primaryFontSize;
+    font-size: $primaryFontSizeLarge;
     padding: 0 10px;
     border-radius: $borderRadius2;
     cursor: text;
@@ -29,7 +29,7 @@ input {
     }
     width: 100%;
     padding: $inputPadding;
-    font-size: $primaryFontSize;
+    font-size: $primaryFontSizeLarge;
     background-color: rgba(0, 0, 0, 0);
     outline: none;
     border-style: solid;
@@ -93,7 +93,7 @@ input:focus {
 .input-error {
     height: 45px;
     padding: 3px 5px;
-    font-size: $secondaryFontSize;
+    font-size: $secondaryFontSizeLarge;
     color: $errorColor;
 }
 
@@ -102,4 +102,16 @@ input:focus {
     margin-top: -1px;
     font-size: 20px;
     vertical-align: middle;
+}
+
+@media only screen and (max-width: 480px) {
+    label {
+        font-size: $primaryFontSizeMedium;
+    }
+    input {
+        font-size: $primaryFontSizeMedium;
+    }
+    .input-error {
+        font-size: $secondaryFontSizeMedium;
+    }
 }
