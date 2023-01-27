@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { logIn, showLoader } from "../../actions";
 import LoginForm from "./LoginForm"
 
-const Login = ({ logIn, loginError, showLoader, loader }) => {
+const Login = ({ logIn, loginError, showLoader, loader, location }) => {
     const onFormSubmit = (email, password) => {
         showLoader(true);
         logIn({ email, password });

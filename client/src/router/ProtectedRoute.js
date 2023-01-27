@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { authUser } from "../actions";
+import Navigation from "../components/Navigation";
 
 // Component that serves as an abstraction layer
 // for protecting routes from users that are not logged in
@@ -21,7 +22,14 @@ const ProtectedRoute = ({ authUser, isLoggedIn, children }) => {
         }
     }, [isLoggedIn]);
 
-    return children;
+    return (
+        <div className="glass-wrapper">
+            <Navigation />
+            <div className="container">
+                {children}
+            </div>
+        </div>
+    );
 };
 
 const mapStateToProps = (state) => {

@@ -27,7 +27,7 @@ h1.login-header {
     width: 100%;
     padding: 40px;
     border-radius: $borderRadius2;
-    transition-duration: $transitionTime;
+    transition: background-color $transitionTime;
 }
 
 .login-form-wrapper > form > button {
@@ -41,7 +41,8 @@ h1.login-header {
     border-radius: $borderRadius2;
     font-size: $primaryFontSizeLarge;
     outline: none;
-    transition-duration: $transitionTime;
+    transition:
+        box-shadow $transitionTime;
 }
 
 @media (hover: hover) {

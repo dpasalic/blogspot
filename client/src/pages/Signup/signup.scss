@@ -28,7 +28,8 @@ h1.signup-header {
     padding: 40px;
     border-radius: $borderRadius2;
     overflow: hidden;
-    transition-duration: $transitionTime;
+    transition:
+        background-color $transitionTime;
 }
 
 .section-container {
@@ -37,7 +38,7 @@ h1.signup-header {
 }
 .section {
     width: 100%;
-    transition-duration: $transitionTime;
+    transition: transform $transitionTime;
 }
 .section:nth-child(2) {
     margin-left: 40px;
@@ -66,7 +67,9 @@ h1.signup-header {
     font-size: $primaryFontSizeLarge;
     outline: none;
     overflow: hidden;
-    transition-duration: $transitionTime;
+    transition:
+        width $transitionTime,
+        box-shadow $transitionTime;
 }
 
 .buttons-section.switched > button:first-child {

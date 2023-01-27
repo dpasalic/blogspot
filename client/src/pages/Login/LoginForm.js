@@ -33,7 +33,7 @@ const LoginForm = ({ onFormSubmit, loginError, loader }) => {
             setErrors(errors);
         }
     }, [email, password]);
-
+    
     return (
         <div className="login-form-wrapper">
             <h1 className="login-header">Log in</h1>
@@ -71,7 +71,7 @@ const LoginForm = ({ onFormSubmit, loginError, loader }) => {
 
                 <div className="login-helper-text">
                     Don't have an account?
-                    <Link to="/signup" className="login-link">Sign up!</Link>
+                    <Link to="/signup" state={{ prevPath: "/login" }} className="login-link">Sign up!</Link>
                 </div>
 
                 {loader || loginError ?

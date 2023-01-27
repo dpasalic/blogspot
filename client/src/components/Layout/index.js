@@ -6,12 +6,7 @@ const Layout = ({ children, theme }) => {
     return (
         <div className={`theme-${theme}`}>
             <div className="body">
-                <div className="glass-wrapper">
-                    <Navigation />
-                    <div className="container">
-                        {children}
-                    </div>
-                </div>
+                {children}
             </div>
         </div>
     );

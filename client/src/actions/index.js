@@ -59,7 +59,11 @@ export const logIn = (values) => async dispatch => {
 };
 
 // AC for logging out
-export const logOut = () => { return { type: LOG_OUT } };
+export const logOut = () => {
+    localStorage.removeItem("accessToken");
+
+    return { type: LOG_OUT }
+};
 
 // AC for authenticating user
 export const authUser = () => {

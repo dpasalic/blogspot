@@ -2,7 +2,6 @@
 @import "../../scss/sizes";
 
 .navigation {
-    background-color: transparent;
     position: sticky;
     top: 0;
     width: 100%;
@@ -11,32 +10,46 @@
     justify-content: space-between;
     align-items: center;
     z-index: 99999;
-    transition: $transitionTime;
+    transition:
+        height $transitionTime,
+        background-color $transitionTime;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 .navigation-high {
     height: 140px;
 }
 .navigation-low {
     @include themify($themes) {
-        background-color: themed("elementWrapperBg");
+        background-color: rgba(themed("contextColor"), .95);
     }
 
     height: 70px;
-    border-bottom-right-radius: 10px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
 
-@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    .navigation-low {
+    .switch-button-path {
         @include themify($themes) {
-            background-color: rgba(themed("contextColor"), .9);
+            border: 1px solid themed("indicatorColor");
         }
     }
 }
 
-.navigation > .logo > img {
+.navigation .logo {
+    //background-color: red;
+    @include themify($themes) {
+        color: themed("primaryTextColor");
+        text-decoration-color: themed("primaryColor");
+    }
+
+    text-decoration-thickness: 3px;
+    display: flex;
+    align-items: center;
+}
+.navigation .logo img {
     height: 50px;
+}
+.navigation .logo .logo-text {
+    font-size: $logoTextFontSizeLarge;
+    margin-left: 15px;
 }
 
 @media only screen and (max-width: 960px) {
@@ -51,21 +64,62 @@
         padding: 0 calc((100% - $containerWidthSmall) / 2);
         border-radius: 0;
     }
+    .navigation .logo img {
+        height: 40px;
+    }
+    .navigation .logo .logo-text {
+        font-size: $logoTextFontSizeMedium;
+        margin-left: 5px;
+    }
 }
 
 .switch-button-path {
+    @include themify($themes) {
+        background-color: themed("elementWrapperBg");
+    }
+
+    display: flex;
     position: absolute;
     left: 50%;
     transform: translateX(-50.5%);
     width: 100px;
     height: 30px;
-    background-color: red;
-    cursor: grab;
+    padding: 3px;
+    border-radius: $borderRadius2;
 }
 
 .switch-button-picker {
+    @include themify($themes) {
+        background-color: themed("primaryTextColor");
+    }
+
     position: absolute;
-    width: 30px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: $borderRadius2;
+    transition: transform 100ms;
+    z-index: 1;
+    outline: none;
+    cursor: grab;
+}
+.switch-button-picker:focus-visible {
+    @include themify($themes) {
+        border: 3px solid themed("primaryColor") !important;
+    }
+    transition: none;
+}
+.switch-button-picker:active {
+    cursor: grabbing;
+}
+
+.switch-button-option {
+    width: 33px;
     height: 100%;
-    background-color: green;
+    margin-top: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    cursor: pointer;
 }

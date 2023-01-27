@@ -30,7 +30,7 @@
 .glass-wrapper {
     position: relative;
     height: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
     display: flex;
     justify-content: center;
 }
@@ -52,25 +52,15 @@ button:focus-visible {
 @media (min-width: 961px) {
     .glass-wrapper {
         @include themify($themes) {
-            background: themed("glassBg");
+            background-image: themed("bgImageLargeAlt");
+            background-color: themed("glassBg");
             box-shadow: themed("glassBoxShadow");
             border: themed("glassBorder");
         }
         border-radius: $borderRadius1;
-        backdrop-filter: blur($blurValue);
-        -webkit-backdrop-filter: blur($blurValue);
 
         margin: $glassWrapperMargin;
         height: calc(100vh - $glassWrapperMargin * 2);
-
-        transition-duration: $transitionTime;
-    }
-}
-@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    .glass-wrapper {
-        @include themify($themes) {
-            background-image: themed("bgImageLargeAlt");
-        }
     }
 }
 

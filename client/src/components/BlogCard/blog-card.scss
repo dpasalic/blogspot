@@ -10,7 +10,10 @@
     padding: 25px;
     border: 1px solid transparent;
     border-radius: $borderRadius2;
-    transition-duration: $transitionTime;
+    transition:
+        border $transitionTime,
+        opacity $transitionTime,
+        background-color $transitionTime;
     cursor: pointer;
 }
 .blog-card:active {
@@ -54,7 +57,9 @@
     border: 3px solid transparent;
     padding: 5px 25px;
     border-radius: $borderRadius2;
-    transition: $transitionTime;
+    transition:
+        background-color $transitionTime,
+        box-shadow $transitionTime;
     cursor: default;
 }
 .blog-card-footer > button:active {

@@ -77,7 +77,8 @@ const SignupForm = ({ onFormSubmit, signupError, loader }) => {
                             error={errors.lastName} />
                     </div>
                     <div className={`section ${switchSectionClassName}`}
-                        onTransitionEnd={() => setTransitionEnd(true)}>
+                        onTransitionEnd={(e) =>
+                            e.propertyName === "transform" ? setTransitionEnd(true) : null}>
                         <EmailInput
                             id="email"
                             label="Email"
@@ -102,7 +103,7 @@ const SignupForm = ({ onFormSubmit, signupError, loader }) => {
 
                 <div className="signup-helper-text">
                         Already have an account?
-                        <Link to="/login" className="login-link">Log in!</Link>
+                        <Link to="/login" state={{ prevPath: "/signup" }} className="login-link">Log in!</Link>
                     </div>
 
                     {loader || signupError ?

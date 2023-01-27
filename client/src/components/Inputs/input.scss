@@ -13,13 +13,15 @@ label {
     padding: 0 10px;
     border-radius: $borderRadius2;
     cursor: text;
-    transition: top $transitionTime, background-color $transitionTime;
+    transition:
+        transform $transitionTime,
+        background-color $transitionTime;
 }
 label.focused {
     @include themify($themes) {
         background-color: themed("contextColor");
     }
-    top: -$inputPadding;
+    transform: translateY(-$inputPadding * 2);
 }
 
 input {
@@ -35,7 +37,7 @@ input {
     border-style: solid;
     border-width: 1px;
     border-radius: $borderRadius2;
-    transition-duration: $transitionTime;
+    transition: box-shadow $transitionTime;
 }
 
 input:focus {

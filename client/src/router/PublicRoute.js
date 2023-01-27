@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { authUser } from "../actions";
+import Navigation from "../components/Navigation";
 
 // Component that serves as an abstraction layer for managing
 // behaviour of public routes
@@ -16,11 +17,18 @@ const PublicRoute = ({ authUser, isLoggedIn, children }) => {
             // Checking if user visited protected page before logging in
             // and redirecting there, if not redirecting to home page
             const path = state && state.requestedPath ? state.requestedPath : "/";
-            navigate(path);
+            navigate(path, { state: { prevPath: "/login" } });
         }
     }, [isLoggedIn]);
 
-    return children;
+    return (
+        <div className="glass-wrapper">
+            <Navigation />
+            <div className="container">
+                {children}
+            </div>
+        </div>
+    );
 };
 
 const mapStateToProps = (state) => {

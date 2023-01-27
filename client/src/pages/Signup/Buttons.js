@@ -26,7 +26,7 @@ const Buttons = ({ switchSection, onSectionSwitch }) => {
                 className={!switchSection ? "hide-submit-button" : ""}
                 tabIndex={!switchSection ? "-1" : "0"}
             >
-                <span className="material-symbols-outlined signup-submit-icon">input</span>
+                <span className="material-symbols-outlined signup-submit-icon">person_add</span>
                 <span>Submit</span>
             </button>
         </div>

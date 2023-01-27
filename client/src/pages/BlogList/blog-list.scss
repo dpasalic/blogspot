@@ -23,7 +23,9 @@ h1.blog-list-header {
     font-size: $primaryFontSizeLarge;
     padding: 10px;
     border-radius: $borderRadius2;
-    transition: $transitionTime;
+    transition:
+        box-shadow $transitionTime,
+        border $transitionTime;
     cursor: default;
 }
 
