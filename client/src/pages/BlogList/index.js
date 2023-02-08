@@ -1,11 +1,13 @@
-import _ from "lodash";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getBlogsAndUsers } from "../../actions";
+import { getBlogsAndUsers, createBlog } from "../../actions";
+import NewBlogModal from "./NewBlogModal";
 import BlogCard from "../../components/BlogCard";
 import "./blog-list.scss";
 
-const BlogList = ({ getBlogsAndUsers, blogs }) => {
+const BlogList = ({ getBlogsAndUsers, createBlog, user, blogs }) => {
+    const [modalOpen, setModalOpen] = useState(false);
+
     useEffect(() => {
         getBlogsAndUsers();
     }, []);
@@ -20,12 +22,19 @@ const BlogList = ({ getBlogsAndUsers, blogs }) => {
 
     return (
         <div className="blog-list-wrapper">
-            <div className="new-blog">
+            <div
+                onClick={() => setModalOpen(true)}
+                className="new-blog">
                 <span className="material-symbols-outlined icon">
                     add_circle
                 </span>
-                <span className="message">New blog awaits, [firstName]!</span>
+                <span className="message">New blog awaits, {user ? user.firstName : ""}!</span>
             </div>
+
+            <NewBlogModal
+                modalOpen={modalOpen}
+                setModalOpen={setModalOpen}
+                createBlog={createBlog} />
 
             <div className="blog-list">
                 {renderBlogs()}
@@ -35,10 +44,13 @@ const BlogList = ({ getBlogsAndUsers, blogs }) => {
 };
 
 const mapStateToProps = (state) => {
-    return { blogs: Object.values(state.blogs) };
+    return {
+        user: state.users[state.auth.userId],
+        blogs: Object.values(state.blogs)
+    };
 };
 
 export default connect(
     mapStateToProps,
-    { getBlogsAndUsers }
+    { getBlogsAndUsers, createBlog }
 )(BlogList);

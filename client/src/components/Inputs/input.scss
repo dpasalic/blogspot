@@ -24,7 +24,7 @@ label.focused {
     transform: translateY(-$inputPadding * 2);
 }
 
-input {
+input, textarea {
     @include themify($themes) {
         border-color: themed("primaryColor");
         color: themed("primaryTextColor");
@@ -40,7 +40,31 @@ input {
     transition: box-shadow $transitionTime;
 }
 
-input:focus {
+textarea {
+    resize: none;
+    height: 45vh;
+    min-height: 200px;
+}
+textarea::-webkit-scrollbar {
+    width: 5px;
+}
+textarea::-webkit-scrollbar-thumb {
+    /* Foreground */
+    background: #999;
+    border-radius: 5px;
+}
+textarea::-webkit-scrollbar-track {
+    /* Background */
+    background: transparent;
+}
+@media only screen and (hover: hover) {
+    textarea::-webkit-scrollbar-thumb:hover {
+        /* Foreground */
+        background: #333;
+    }
+}
+
+input:focus, textarea:focus {
     @include themify($themes) {
         box-shadow: 0 0 3px 2px themed("primaryColor");
     }

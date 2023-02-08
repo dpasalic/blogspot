@@ -83,3 +83,19 @@ export const validateSignupSecondSection = (email, password) => {
 
     return errors;
 };
+
+export const validateNewBlog = (title, body) => {
+    const errors = {};
+
+    // Title validation
+    if (!title) {
+        errors.title = "Title required";
+    }
+
+    // Body validation
+    if (!body) {
+        errors.body = "Body required";
+    }
+
+    return errors;
+};

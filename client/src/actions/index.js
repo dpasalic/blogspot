@@ -78,7 +78,7 @@ export const authUser = () => {
             localStorage.removeItem("accessToken");
             return { type: LOG_OUT };
         } else {
-            return { type: LOG_IN, payload: parsedToken.sub };
+            return { type: LOG_IN, payload: Number(parsedToken.sub) };
         }
     }
 
@@ -86,7 +86,7 @@ export const authUser = () => {
     return { type: LOG_OUT };
 };
 
-export const getUser = (id) => async dispatch => {
+export const getUser = (id) => async (dispatch, getState) => {
     const response = await getUsr(id);
 
     dispatch({ type: GET_USER, payload: response.data });
@@ -95,6 +95,7 @@ export const getUser = (id) => async dispatch => {
 // AC for creating a blog
 export const createBlog = (values) => async (dispatch, getState) => {
     const { userId } = getState().auth;
+    console.log(values, userId);
     const response = await crtBlg(values, userId);
 
     dispatch({ type: CREATE_BLOG, payload: response.data });
@@ -128,8 +129,10 @@ export const deleteBlog = (id) => async dispatch => {
 
 export const getBlogsAndUsers = () => async (dispatch, getState) => {
     await dispatch(getBlogs());
-
-    let userIds = [];
+// move checking existing user to
+// getUser action creator
+// to prevent duplicate api calls
+    let userIds = [getState().auth.userId];
     Object.values(getState().blogs).forEach(blog => {
         if (!userIds.includes(blog.userId)) {
             dispatch(getUser(blog.userId));

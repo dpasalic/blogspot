@@ -23,9 +23,7 @@ h1.blog-list-header {
     font-size: $primaryFontSizeLarge;
     padding: 10px;
     border-radius: $borderRadius2;
-    transition:
-        box-shadow $transitionTime,
-        border $transitionTime;
+    transition: box-shadow $transitionTime, border $transitionTime;
     cursor: default;
 }
 
@@ -36,17 +34,47 @@ h1.blog-list-header {
     margin-left: 10px;
 }
 
+button[type="submit"] {
+    @include themify($themes) {
+        background-color: themed("primaryColor");
+        color: themed("secondaryTextColor");
+    }
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: $borderRadius2;
+    font-size: $primaryFontSizeLarge;
+    outline: none;
+    transition: box-shadow $transitionTime;
+}
+
 @media only screen and (hover: hover) {
     .new-blog:hover {
         @include themify($themes) {
             box-shadow: 0 0 3px 2px themed("primaryColor");
         }
     }
+    button[type="submit"]:hover {
+        @include themify($themes) {
+            box-shadow: 0 0 3px 2px themed("primaryColor");
+        }
+    }
+}
+button[type="submit"]:active {
+    @include themify($themes) {
+        box-shadow: 0 0 3px 2px themed("secondaryTextColor");
+    }
+}
+button[type="submit"]:focus-visible {
+    @include themify($themes) {
+        background-color: themed("contextColor");
+        color: themed("primaryTextColor");
+    }
 }
 
 .new-blog:active {
     @include themify($themes) {
-        border: 3px solid themed("primaryTextColor");
+        border: 3px solid themed("secondaryTextColor");
         box-shadow: 0 0 3px 2px themed("secondaryTextColor");
     }
 }

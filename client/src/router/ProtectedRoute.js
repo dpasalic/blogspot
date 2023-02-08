@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
-import { authUser } from "../actions";
+import { authUser, getUser } from "../actions";
 import Navigation from "../components/Navigation";
 
 // Component that serves as an abstraction layer
 // for protecting routes from users that are not logged in
 
-const ProtectedRoute = ({ authUser, isLoggedIn, children }) => {
+const ProtectedRoute = ({ authUser, getUser, auth, users, children }) => {
     const navigate = useNavigate();
     // Getting path using useLocation hook and passing it to login page
     // so after logging in user is redirected to the desired page
@@ -17,10 +17,12 @@ const ProtectedRoute = ({ authUser, isLoggedIn, children }) => {
     useEffect(() => { authUser() }, []);
 
     useEffect(() => {
-        if (isLoggedIn === false) {
+        if (auth.isLoggedIn === false) {
             navigate("/login", { state: { requestedPath: pathname } });
+        } else if (auth.isLoggedIn === true) {
+            getUser(auth.userId);
         }
-    }, [isLoggedIn]);
+    }, [auth.isLoggedIn]);
 
     return (
         <div className="glass-wrapper">
@@ -33,10 +35,13 @@ const ProtectedRoute = ({ authUser, isLoggedIn, children }) => {
 };
 
 const mapStateToProps = (state) => {
-    return { isLoggedIn: state.auth.isLoggedIn };
+    return {
+        auth: state.auth,
+        users: state.users
+    };
 };
 
 export default connect(
     mapStateToProps,
-    { authUser }
+    { authUser, getUser }
 )(ProtectedRoute);

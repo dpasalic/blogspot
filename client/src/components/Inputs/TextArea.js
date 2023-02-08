@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./input.scss";
 
 // Input used for login and signup forms
@@ -6,13 +6,11 @@ import "./input.scss";
 const TextInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) => {
     const [labelFocused, setLabelFocused] = useState(false);
 
-    const onInputFocusChange = (e) => {
+    const onInputFocusChange = () => {
         if (value) {
             setLabelFocused(true);
-        } else if (e.type === "focus") {
-            setLabelFocused(true);
-        } else if (e.type === "blur") {
-            setLabelFocused(false);
+        } else {
+            setLabelFocused(!labelFocused);
         }
     };
 
@@ -23,7 +21,7 @@ const TextInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) =
                 className={labelFocused ? "focused" : ""}>
                 {label}
             </label>
-            <input
+            <textarea
                 id={id}
                 type="text"
                 value={value}
@@ -32,8 +30,8 @@ const TextInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) =
                 onBlur={onInputFocusChange}
                 tabIndex={tabIndex}
                 autoFocus={autoFocus}
-                autoComplete="new-password"
-            />
+                autoComplete="new-password">
+            </textarea>
 
             <div className="input-error">
                 {error ?

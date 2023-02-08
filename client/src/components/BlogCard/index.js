@@ -8,7 +8,7 @@ const BlogCard = ({ blog, user }) => {
     }
 
     return (
-        <div className="blog-card">
+        <div className="blog-card" tabIndex="0">
             <Tooltip message={"category"} />
 
             <h2 className="blog-card-header">{blog.title}</h2>
