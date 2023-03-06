@@ -240,7 +240,7 @@
 .vertical-menu a:focus-visible,
 .vertical-menu-wrapper .menu-icon:focus-visible {
     @include themify($themes) {
-        border: 3px solid themed("primaryTextColor") !important;
+        outline: 3px solid themed("primaryTextColor") !important;
     }
     transition: none;
 }

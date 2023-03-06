@@ -43,6 +43,15 @@ const BlogList = ({ getBlogsAndUsers, createBlog, user, blogs }) => {
     );
 };
 
+// Add read page link to nav
+// It is page for reading blogs
+// Has left and right arrow for
+// switching blogs
+// Left for read, right for not read blogs
+// Functionality of adding blogs to readlist
+// Notification circle of blogs to read on
+// readlist link button
+
 const mapStateToProps = (state) => {
     return {
         user: state.users[state.auth.userId],

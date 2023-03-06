@@ -38,7 +38,7 @@ const Navigation = ({ setTheme, logOut, isLoggedIn, theme }) => {
                 className="logo">
                 <img src={theme === "light" ? lightLogo :
                     theme === "dark" ? darkLogo : verdantLogo} />
-                {viewportDims.width <= 640 || viewportDims.width >= 1420 ?
+                {viewportDims.width <= 640 || viewportDims.width >= 1500 ?
                     <div className="logo-text">Blogspot</div> : null}
             </Link>
 
@@ -47,7 +47,7 @@ const Navigation = ({ setTheme, logOut, isLoggedIn, theme }) => {
                     theme={theme}
                     changeTheme={onThemeChange} /> : null}
 
-            {viewportDims.width > 1420 ?
+            {viewportDims.width > 1500 ?
                 <HorizontalMenu
                     logOut={logOut}
                     isLoggedIn={isLoggedIn} /> :

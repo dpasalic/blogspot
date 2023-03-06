@@ -16,7 +16,9 @@ $themes: (
         glassBorder: $lightGlassBorder,
         elementWrapperBg: $lightElementWrapperBg,
         elementWrapperBoxShadow: $lightElementWrapperBoxShadow,
-        elementWrapperBorder: $lightElementWrapperBorder
+        elementWrapperBorder: $lightElementWrapperBorder,
+        switchButtonColor: $lightSwitchButtonColor,
+        switchAnimationColor: $lightSwitchAnimationColor
     ),
     dark: (
         primaryColor: $darkPrimaryColor,
@@ -33,7 +35,9 @@ $themes: (
         glassBorder: $darkGlassBorder,
         elementWrapperBg: $darkElementWrapperBg,
         elementWrapperBoxShadow: $darkElementWrapperBoxShadow,
-        elementWrapperBorder: $darkElementWrapperBorder
+        elementWrapperBorder: $darkElementWrapperBorder,
+        switchButtonColor: $darkSwitchButtonColor,
+        switchAnimationColor: $darkSwitchAnimationColor
     ),
     verdant: (
         primaryColor: $verdantPrimaryColor,
@@ -50,7 +54,9 @@ $themes: (
         glassBorder: $verdantGlassBorder,
         elementWrapperBg: $verdantElementWrapperBg,
         elementWrapperBoxShadow: $verdantElementWrapperBoxShadow,
-        elementWrapperBorder: $verdantElementWrapperBorder
+        elementWrapperBorder: $verdantElementWrapperBorder,
+        switchButtonColor: $verdantSwitchButtonColor,
+        switchAnimationColor: $verdantSwitchAnimationColor
     )
 );
 

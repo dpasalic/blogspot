@@ -22,7 +22,8 @@
 @keyframes show-modal {
     0% {
         opacity: 0;
-    } 100% {
+    }
+    100% {
         opacity: 1;
     }
 }
@@ -35,7 +36,8 @@
 @keyframes visually-hide-modal {
     0% {
         opacity: 1;
-    } 100% {
+    }
+    100% {
         opacity: 0;
     }
 }
@@ -53,14 +55,39 @@
     padding: 40px;
     border-radius: $borderRadius2;
 }
-.modal-body > h2 {
-    font-size: $h2FontSizeLarge;
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-bottom: 45px;
+}
+.modal-header > h2 {
+    font-size: $h2FontSizeLarge;
+}
+.modal-header > .close-icon {
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+@media screen and (hover: hover) {
+    .modal-header > .close-icon:hover {
+        @include themify($themes) {
+            background-color: rgba(themed("primaryColor"), 0.1);
+        }
+    }
 }
 
 @media (max-width: 640px) {
     .modal-body {
         width: $containerWidthSmall;
+    }
+    .modal-header > h2 {
+        font-size: $h2FontSizeMedium;
+    }
+    .modal-header > .close-icon {
+        font-size: 28px;
     }
 }
 
@@ -68,9 +95,18 @@
     .modal-body {
         padding: 20px;
     }
+    .modal-header {
+        padding-bottom: 20px;
+    }
+    .modal-header > h2 {
+        font-size: $h2FontSizeSmall;
+    }
+    .modal-header > .close-icon {
+        font-size: 26px;
+    }
 }
 
-@media (max-height: 580px) {
+@media (max-height: 520px) {
     .modal-body {
         top: unset;
         transform: translateX(-50.4%);

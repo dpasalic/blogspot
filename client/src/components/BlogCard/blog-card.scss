@@ -4,17 +4,18 @@
 .blog-card {
     @include themify($themes) {
         background-color: themed("elementWrapperBg");
+        color: themed("primaryTextColor");
     }
 
+    display: block;
     margin-top: 30px;
     padding: 25px;
     border: 1px solid transparent;
     border-radius: $borderRadius2;
-    transition:
-        border $transitionTime,
-        opacity $transitionTime,
-        background-color $transitionTime;
+    text-decoration: none;
+    transition: border $transitionTime, opacity $transitionTime, background-color $transitionTime;
     cursor: pointer;
+    outline: none;
 }
 .blog-card:active {
     opacity: 0.8;
@@ -27,15 +28,27 @@
         }
     }
 
-    .blog-card-footer > button:hover {
+    .blog-card-footer > button:hover,
+    .blog-card-top > button:hover {
         @include themify($themes) {
             background-color: rgba(themed("primaryColor"), 0.1);
         }
     }
 }
+.blog-card:focus-visible {
+    @include themify($themes) {
+        outline: 3px solid themed("primaryTextColor");
+    }
+}
+
+.blog-card-top {
+    display: flex;
+    justify-content: space-between;
+}
+
 .blog-card-header {
     font-size: $h2FontSizeLarge;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 .blog-card-user {
     font-size: $secondaryFontSizeLarge;
@@ -51,28 +64,50 @@
     left: -25px;
     width: calc(100% + 50px);
 }
+
+.active-button {
+    @include themify($themes) {
+        background-color: themed("primaryColor") !important;
+        color: themed("secondaryTextColor") !important;
+    }
+}
+.blog-card-top > button {
+    all: unset;
+    padding: 0 5px;
+    border-radius: $borderRadius2;
+    transition: background-color $transitionTime, box-shadow $transitionTime;
+    cursor: default;
+}
 .blog-card-footer > button {
     all: unset;
     display: flex;
-    border: 3px solid transparent;
     padding: 5px 25px;
     border-radius: $borderRadius2;
-    transition:
-        background-color $transitionTime,
-        box-shadow $transitionTime;
+    transition: background-color $transitionTime, box-shadow $transitionTime;
     cursor: default;
 }
-.blog-card-footer > button:active {
+.blog-card button:active {
     @include themify($themes) {
         box-shadow: 0 0 3px 2px themed("primaryTextColor");
     }
 }
-.blog-card-footer > button > .icon {
+.blog-card button > .icon {
     font-size: 22px;
 }
 .blog-card-footer > button > .counter {
     font-size: 16px;
     margin-left: 5px;
+}
+
+.category {
+    @include themify($themes) {
+        background-color: themed("elementWrapperBg");
+    }
+
+    font-size: 12px;
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: $borderRadius2;
 }
 
 @media (max-width: 960px) {

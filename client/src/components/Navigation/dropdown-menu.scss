@@ -153,7 +153,7 @@
 .dropdown-menu a:focus-visible,
 .dropdown-menu-wrapper .menu-icon:focus-visible {
     @include themify($themes) {
-        border: 3px solid themed("primaryTextColor") !important;
+        outline: 3px solid themed("primaryTextColor") !important;
     }
     transition: none;
 }

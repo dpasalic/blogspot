@@ -19,3 +19,7 @@ export const GET_BLOG = "GET_BLOG";
 export const GET_BLOGS = "GET_BLOGS";
 export const EDIT_BLOG = "EDIT_BLOG";
 export const DELETE_BLOG = "DELETE_BLOG";
+
+export const ADD_TO_READ_LIST = "ADD_TO_READ_LIST";
+export const ADD_AS_READ = "ADD_AS_READ";
+export const ADD_READING_BLOG = "ADD_READING_BLOG";

@@ -41,7 +41,7 @@
 }
 .horizontal-menu > a:focus-visible {
     @include themify($themes) {
-        border: 3px solid themed("primaryTextColor") !important;
+        outline: 3px solid themed("primaryTextColor") !important;
     }
     transition: none;
 }
@@ -67,14 +67,33 @@
 .\/ {
     transform: translateX(23px);
 }
-.\/users\/id {
+.\/readlist {
     transform: translateX(110px);
+}
+.\/users\/id {
+    transform: translateX(195px);
 }
 .\/login {
     transform: translateX(23px);
 }
 .\/signup {
     transform: translateX(110px);
+}
+
+.blog-list-from-far-right {
+    animation: blog-list-from-far-right 400ms forwards;
+}
+@keyframes blog-list-from-far-right {
+    0% {
+        transform: translateX(195px);
+    } 30% {
+        transform: translateX(215px);
+        width: 10px;
+    } 60% {
+        width: 25px;
+    } 100% {
+        transform: translateX(23px);
+    }
 }
 
 .blog-list-from-right {
@@ -93,10 +112,10 @@
     }
 }
 
-.user-show-from-left {
-    animation: user-show-from-left 400ms forwards;
+.read-list-from-left {
+    animation: read-list-from-left 400ms forwards;
 }
-@keyframes user-show-from-left {
+@keyframes read-list-from-left {
     0% {
         transform: translateX(23px);
     } 30% {
@@ -106,6 +125,70 @@
         width: 25px;
     } 100% {
         transform: translateX(110px);
+    }
+}
+
+.read-list-from-right {
+    animation: read-list-from-right 400ms forwards;
+}
+@keyframes read-list-from-right {
+    0% {
+        transform: translateX(195px);
+    } 30% {
+        transform: translateX(215px);
+        width: 10px;
+    } 60% {
+        width: 25px;
+    } 100% {
+        transform: translateX(110px);
+    }
+}
+
+.user-show-from-far-left {
+    animation: user-show-from-far-left 400ms forwards;
+}
+@keyframes user-show-from-far-left {
+    0% {
+        transform: translateX(23px);
+    } 30% {
+        transform: translateX(3px);
+        width: 10px;
+    } 60% {
+        width: 25px;
+    } 100% {
+        transform: translateX(195px);
+    }
+}
+
+.user-show-from-left {
+    animation: user-show-from-left 400ms forwards;
+}
+@keyframes user-show-from-left {
+    0% {
+        transform: translateX(110px);
+    } 30% {
+        transform: translateX(90px);
+        width: 10px;
+    } 60% {
+        width: 25px;
+    } 100% {
+        transform: translateX(195px);
+    }
+}
+
+.login-from-far-left {
+    animation: login-from-far-left 400ms forwards;
+}
+@keyframes login-from-far-left {
+    0% {
+        transform: translateX(-149px);
+    } 30% {
+        transform: translateX(-169px);
+        width: 10px;
+    } 60% {
+        width: 25px;
+    } 100% {
+        transform: translateX(23px);
     }
 }
 

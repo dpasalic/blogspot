@@ -34,11 +34,24 @@ const NewBlogModal = ({ modalOpen, setModalOpen, createBlog }) => {
         }
     };
 
+    const onModalClose = () => {
+        setModalOpen(false);
+        setValidate(false);
+        setErrors({});
+    };
+
     return (
         <Modal
             modalOpen={modalOpen}
-            onClose={() => setModalOpen(false)}>
-            <h2>New Blog</h2>
+            onClose={onModalClose}>
+            <div className="modal-header">
+                <h2>New Blog</h2>
+                <div
+                    onClick={onModalClose}
+                    className="material-symbols-outlined close-icon">
+                    close
+                </div>
+            </div>
             <form onSubmit={onNewBlogSubmit} noValidate>
                 <TextInput
                     id="title"

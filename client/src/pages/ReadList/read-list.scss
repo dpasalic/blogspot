@@ -1,0 +1,278 @@
+@import "../../scss/themes";
+@import "../../scss/sizes";
+
+.read-list-wrapper {
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 170px 30px 70px 30px;
+}
+
+.reader {
+    @include themify($themes) {
+        background-color: themed("elementWrapperBg");
+        color: themed("primaryTextColor");
+    }
+
+    padding: 25px;
+    border-radius: $borderRadius2;
+    transition: background-color $transitionTime;
+    outline: none;
+}
+
+.reader-blog-title {
+    font-size: $h2FontSizeLarge;
+    font-weight: 900;
+}
+.reader-blog-user {
+    font-size: $secondaryFontSizeLarge;
+    margin-top: 10px;
+}
+.reader-blog-body {
+    font-size: $primaryFontSizeLarge;
+    line-height: calc($primaryFontSizeLarge * 1.5);
+    text-align: justify;
+    margin-top: 50px;
+    white-space: pre-line;
+}
+
+@media only screen and (min-width: 961px) {
+    .read-list-wrapper {
+        @include themify($themes) {
+            box-shadow: themed("elementWrapperBoxShadow");
+        }
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .read-list-wrapper {
+        padding: 170px 0 70px 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .new-blog {
+        font-size: $primaryFontSizeMedium;
+    }
+    .new-blog > .icon {
+        font-size: $primaryFontSizeLarge;
+    }
+}
+
+.list-indicator-wrapper {
+    position: relative;
+    padding-bottom: 20px;
+}
+.list-indicator-dots {
+    position: absolute;
+    left: 50%;
+    display: flex;
+    margin: auto;
+    transition: 300ms;
+}
+.dot-wrapper {
+    width: 20px;
+    display: flex;
+    justify-content: center;
+}
+.dot-wrapper > .dot {
+    background-color: white;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+.list-indicator-main-dot-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -4px);
+}
+.list-indicator-main-dot {
+    @include themify($themes) {
+        background-color: themed("primaryColor");
+    }
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.list-indicator-main-dot-animation {
+    animation: main-dot-animation 300ms;
+}
+@keyframes main-dot-animation {
+    0% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.desktop-button-wrapper {
+    position: absolute;
+    top: 200px;
+    width: 70px;
+    height: 300px;
+}
+.desktop-left-button-wrapper {
+    left: -70px;
+}
+.desktop-right-button-wrapper {
+    right: -70px;
+}
+.desktop-button {
+    all: unset;
+    position: relative;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: width 300ms, opacity 300ms;
+}
+.desktop-button:hover {
+    width: 100%;
+}
+.desktop-left-button {
+    margin-left: auto;
+    @include themify($themes) {
+        background-image: radial-gradient(100% 150px at right, themed("switchButtonColor") 25%, transparent);
+    }
+}
+.disabled-desktop-button {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.desktop-left-button:hover > .desktop-button-icon {
+    transform: translateX(-20px);
+}
+.desktop-button-animation {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 999;
+}
+.desktop-left-button-animation {
+    @include themify($themes) {
+        background-image: radial-gradient(100% 105px at right, themed("primaryColor"), transparent);
+    }
+}
+.desktop-right-button-animation {
+    @include themify($themes) {
+        background-image: radial-gradient(100% 105px at left, themed("primaryColor"), transparent);
+    }
+}
+.animation-active {
+    animation: desktop-button-click 300ms linear;
+}
+@keyframes desktop-button-click {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.desktop-right-button {
+    @include themify($themes) {
+        background-image: radial-gradient(100% 150px at left, themed("switchButtonColor") 25%, transparent);
+    }
+}
+.desktop-right-button:hover > .desktop-button-icon {
+    transform: translateX(20px);
+}
+.desktop-button-icon {
+    @include themify($themes) {
+        color: themed("secondaryTextColor");
+    }
+    position: absolute;
+    font-size: 30px;
+    transition: transform 300ms;
+}
+.desktop-left-button-icon {
+    right: 0;
+}
+.desktop-right-button-icon {
+    left: 5px;
+}
+
+.indicator-gradient {
+    position: absolute;
+    width: 0;
+    height: 100px;
+    opacity: 0;
+    transition: opacity 300ms, width 300ms;
+}
+.desktop-button:hover > .indicator-gradient {
+    opacity: 1;
+    width: 30px;
+}
+.left-gradient {
+    @include themify($themes) {
+        background-image: radial-gradient(100% 75px at right, themed("primaryColor"), transparent 70%);
+    }
+    right: 0;
+}
+.right-gradient {
+    @include themify($themes) {
+        background-image: radial-gradient(100% 75px at left, themed("primaryColor"), transparent 70%);
+    }
+}
+
+.switch-animation-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.hide-switch-animation-container {
+    display: none;
+}
+.switch-animation-wrapper {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 345px;
+}
+.switch-animation-left-wrapper {
+    left: -5px;
+}
+.switch-animation-right-wrapper {
+    right: -5px;
+}
+.switch-animation-circle {
+    @include themify($themes) {
+        background-color: themed("switchAnimationColor");
+    }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.switch-animation {
+    animation: switch 750ms;
+}
+@keyframes switch {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(400);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(400);
+        opacity: 0;
+    }
+}

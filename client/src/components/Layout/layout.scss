@@ -44,7 +44,7 @@
 
 button:focus-visible {
     @include themify($themes) {
-        border: 3px solid themed("primaryTextColor") !important;
+        outline: 3px solid themed("primaryTextColor") !important;
     }
     transition: none;
 }
@@ -52,8 +52,14 @@ button:focus-visible {
 @media (min-width: 961px) {
     .glass-wrapper {
         @include themify($themes) {
-            background-image: themed("bgImageLargeAlt");
-            background-color: themed("glassBg");
+            background: {
+                image: themed("bgImageLargeAlt");
+                color: themed("glassBg");
+                repeat: no-repeat;
+                position: center;
+                attachment: fixed;
+                size: cover;
+            }
             box-shadow: themed("glassBoxShadow");
             border: themed("glassBorder");
         }

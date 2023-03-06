@@ -7,17 +7,27 @@ const HorizontalMenu = ({ logOut, isLoggedIn }) => {
 
     const addPickerClassName = () => {
         const currentPath = location.pathname;
-        const prevPath = location.state ? location.state.prevPath : null
+        const prevPath = location.state ? location.state.prevPath : "/"
 
         if (!prevPath) {
             return "";
+        }  else if (currentPath === "/" && (prevPath === "/login" || prevPath.includes("users"))) {
+            return "blog-list-from-far-right";
         } else if (currentPath === "/") {
             return "blog-list-from-right";
+        } else if (currentPath.includes("readlist") && prevPath === "/") {
+            return "read-list-from-left";
+        } else if (currentPath.includes("readlist")) {
+            return "read-list-from-right";
         } else if (currentPath.includes("users") && prevPath === "/login") {
             return "standing-still";
+        } else if (currentPath.includes("users") && prevPath === "/") {
+            return "user-show-from-far-left";
         } else if (currentPath.includes("users")) {
             return "user-show-from-left";
         } else if (currentPath === "/login" && prevPath === "/") {
+            return "login-from-far-left";
+        } else if (currentPath === "/login" && prevPath === "/readlist") {
             return "login-from-left";
         } else if (currentPath === "/login" && prevPath.includes("users")) {
             return "standing-still";
@@ -36,6 +46,10 @@ const HorizontalMenu = ({ logOut, isLoggedIn }) => {
                         <NavigationLink
                             to="/"
                             icon="home"
+                            currentRoute={location.pathname} />
+                        <NavigationLink
+                            to="/readlist"
+                            icon="chrome_reader_mode"
                             currentRoute={location.pathname} />
                         <NavigationLink
                             to={`/users/99`}
@@ -59,14 +73,6 @@ const HorizontalMenu = ({ logOut, isLoggedIn }) => {
                     </>}
             </div>
 
-            {/* {isLoggedIn ?
-                <div className={`page-indicator ${location.pathname === "/" ? "/" : "/users/id"}`}>
-                </div> :
-                <div className={`page-indicator ${
-                        location.state && location.state.prevPath === "/" ? "/login-from-left" :
-                            location.state && /\/users\//.test(location.state.prevPath) ? "login-standing" : location.pathname
-                    }`}></div>} */}
-            
             <div className={`
                     page-indicator
                     ${location.pathname.includes("users") ? "/users/id" : location.pathname}

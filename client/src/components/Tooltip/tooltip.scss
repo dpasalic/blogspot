@@ -6,8 +6,33 @@
         background-color: themed("elementWrapperBg");
     }
 
-    font-size: 12px;
-    display: inline-block;
-    padding: 3px 6px;
+    position: absolute;
+    font-size: $primaryFontSizeLarge;
+    width: max-content;
+    padding: 5px 15px;
     border-radius: $borderRadius2;
+}
+
+.right-switch {
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 70px;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+.desktop-right-button-wrapper > .desktop-right-button:hover + .right-switch {
+    opacity: 1;
+    transform: translate(20px, -50%);
+}
+
+.left-switch {
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 70px;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+.desktop-left-button-wrapper > .desktop-left-button:hover + .left-switch {
+    opacity: 1;
+    transform: translate(-20px, -50%);
 }

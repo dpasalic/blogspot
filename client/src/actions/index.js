@@ -8,8 +8,9 @@ import { parseJwt } from "../helpers";
 import {
     SET_THEME, SHOW_LOADER,
     LOG_IN, LOG_IN_ERROR, LOG_OUT,
-    CREATE_USER, GET_USER,
-    CREATE_BLOG, GET_BLOG, GET_BLOGS, EDIT_BLOG, DELETE_BLOG
+    GET_USER,
+    CREATE_BLOG, GET_BLOG, GET_BLOGS, EDIT_BLOG, DELETE_BLOG,
+    ADD_TO_READ_LIST, ADD_AS_READ, ADD_READING_BLOG
 } from "./types";
 
 // Action creators
@@ -127,11 +128,20 @@ export const deleteBlog = (id) => async dispatch => {
     dispatch({ type: DELETE_BLOG, payload: id });
 };
 
+export const getBlogAndUser = (blogId) => async (dispatch, getState) => {
+    await dispatch(getBlog(blogId));
+
+    const currentBlog = getState().blogs[blogId];
+
+    dispatch(getUser(currentBlog.userId));
+    dispatch(addReadingBlog(currentBlog));
+};
+
 export const getBlogsAndUsers = () => async (dispatch, getState) => {
     await dispatch(getBlogs());
-// move checking existing user to
-// getUser action creator
-// to prevent duplicate api calls
+    // move checking existing user to
+    // getUser action creator
+    // to prevent duplicate api calls
     let userIds = [getState().auth.userId];
     Object.values(getState().blogs).forEach(blog => {
         if (!userIds.includes(blog.userId)) {
@@ -139,4 +149,16 @@ export const getBlogsAndUsers = () => async (dispatch, getState) => {
             userIds.push(blog.userId);
         }
     });
+};
+
+export const addToReadList = (blog) => {
+    return { type: ADD_TO_READ_LIST, payload: blog };
+};
+
+export const addAsRead = (blog) => {
+    return { type: ADD_AS_READ, payload: blog };
+};
+
+export const addReadingBlog = (blog) => {
+    return { type: ADD_READING_BLOG, payload: blog };
 };

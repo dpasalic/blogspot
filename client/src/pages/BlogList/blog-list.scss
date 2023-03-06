@@ -101,9 +101,3 @@ button[type="submit"]:focus-visible {
         font-size: $primaryFontSizeLarge;
     }
 }
-
-@media only screen and (max-height: 480px) {
-    .blog-list-wrapper {
-        align-content: flex-start;
-    }
-}

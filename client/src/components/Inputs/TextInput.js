@@ -7,9 +7,7 @@ const TextInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) =
     const [labelFocused, setLabelFocused] = useState(false);
 
     const onInputFocusChange = (e) => {
-        if (value) {
-            setLabelFocused(true);
-        } else if (e.type === "focus") {
+        if (value || e.type === "focus") {
             setLabelFocused(true);
         } else if (e.type === "blur") {
             setLabelFocused(false);

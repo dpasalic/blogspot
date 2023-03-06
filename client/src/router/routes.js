@@ -3,7 +3,7 @@ import BlogList from "../pages/BlogList";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import UserShow from "../pages/UserShow";
-import BlogShow from "../pages/BlogShow";
+import ReadList from "../pages/ReadList";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 
@@ -13,7 +13,7 @@ const BLOG_LIST = "/";
 const LOGIN = "/login";
 const SIGNUP = "/signup";
 const USER = "/users/:userId";
-const BLOG = "/blogs/:blogId";
+const READ_LIST = "/readlist";
 
 export default [
     // Passed ErrorPage component to "/" route for handling requests to unexisting routes
@@ -26,5 +26,5 @@ export default [
     { path: LOGIN, element: <PublicRoute><Login /></PublicRoute> },
 
     { path: USER, element: <ProtectedRoute><UserShow /></ProtectedRoute> },
-    { path: BLOG, element: <ProtectedRoute><BlogShow /></ProtectedRoute> }
+    { path: READ_LIST, element: <ProtectedRoute><ReadList /></ProtectedRoute> }
 ];

@@ -1,8 +1,8 @@
 import "./tooltip.scss";
 
-const Tooltip = ({ message }) => {
+const Tooltip = ({ message, position }) => {
     return (
-        <div className="tooltip">
+        <div className={`tooltip ${position}`}>
             <div className="tooltip-message">
                 {message}
             </div>
