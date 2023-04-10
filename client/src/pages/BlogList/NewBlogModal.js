@@ -66,7 +66,7 @@ const NewBlogModal = ({ modalOpen, setModalOpen, createBlog }) => {
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
                     error={errors.body} />
-                <button className="hehe" type="submit">
+                <button className="new-blog-submit-button" type="submit">
                     <div>
                         <span className="material-symbols-outlined login-submit-icon">post_add</span>
                         Submit

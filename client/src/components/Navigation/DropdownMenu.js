@@ -4,7 +4,7 @@ import useOutsideClickAlert from "../../hooks/useOutsideClickAlert";
 import NavigationLink from "./NavigationLink";
 import "./dropdown-menu.scss";
 
-const DropdownMenu = ({ logOut, isLoggedIn, children }) => {
+const DropdownMenu = ({ logOut, isLoggedIn, userId, currentBlog }) => {
     const [menuButtonClick, setMenuButtonClick] = useState(false);
     const [menuActive, setMenuActive] = useState(false);
     const [animationActive, setAnimationActive] = useState(false);
@@ -14,6 +14,7 @@ const DropdownMenu = ({ logOut, isLoggedIn, children }) => {
 
     const location = useLocation();
 
+    // Detect click outside of dropdown and hide it
     useEffect(() => {
         if (outsideClickAlert) {
             setAnimationActive(false);
@@ -40,7 +41,8 @@ const DropdownMenu = ({ logOut, isLoggedIn, children }) => {
         }
     };
 
-    const onMenuAnimationEnd = (e) => {
+    // Set menu "display: none" after visually hides
+    const onMenuAnimationEnd = e => {
         if (e.animationName === "hide-dropdown-bg") {
             setMenuActive(false);
         }
@@ -68,7 +70,12 @@ const DropdownMenu = ({ logOut, isLoggedIn, children }) => {
                             onLinkClick={() => setAnimationActive(false)}
                             currentRoute={location.pathname} />
                         <NavigationLink
-                            to={`/users/99`}
+                            to={currentBlog ? `/readlist?blogId=${currentBlog.id}` : "/readlist"}
+                            icon="chrome_reader_mode"
+                            onLinkClick={() => setAnimationActive(false)}
+                            currentRoute={location.pathname} />
+                        <NavigationLink
+                            to={`/users/${userId}`}
                             icon="person"
                             onLinkClick={() => setAnimationActive(false)}
                             currentRoute={location.pathname} />

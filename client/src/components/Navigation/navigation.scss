@@ -68,6 +68,9 @@
         padding: 0 calc((100% - $containerWidthSmall) / 2);
         border-radius: 0 0 10px 10px;
     }
+    .navigation .logo {
+        margin-left: 0;
+    }
     .navigation .logo img {
         height: 35px;
     }

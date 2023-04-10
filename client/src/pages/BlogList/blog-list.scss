@@ -34,7 +34,7 @@ h1.blog-list-header {
     margin-left: 10px;
 }
 
-button[type="submit"] {
+.new-blog-submit-button {
     @include themify($themes) {
         background-color: themed("primaryColor");
         color: themed("secondaryTextColor");
@@ -48,15 +48,73 @@ button[type="submit"] {
     transition: box-shadow $transitionTime;
 }
 
+.comment-wrapper {
+    padding-bottom: 25px;
+}
+.comment-timestamp {
+    opacity: 0.7;
+    padding-bottom: 5px;
+    font-size: $secondaryFontSizeMedium;
+}
+.comment-body {
+    font-size: $primaryFontSizeLarge;
+}
+.comments-modal-user {
+    margin-bottom: 10px;
+}
+.comment-buttons-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+.comment-button {
+    all: unset;
+    padding: 5px 25px;
+    border-radius: $borderRadius2;
+    transition: background-color $transitionTime, box-shadow $transitionTime;
+    cursor: default;
+}
+.comment-button:active {
+    @include themify($themes) {
+        box-shadow: 0 0 3px 2px themed("primaryTextColor");
+    }
+}
+.disabled-submit-comment-button {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.input-wrapper:has(input[id="comment"]) .input-error {
+    height: 0;
+}
+
+.all-comments-text {
+    margin:10px 0 10px 0;
+    font-size: $primaryFontSizeLarge;
+    font-weight: 900;
+}
+.comments-hr {
+    @include themify($themes) {
+        background-color: themed("indicatorColor");
+    }
+    height: 1px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
 @media only screen and (hover: hover) {
     .new-blog:hover {
         @include themify($themes) {
             box-shadow: 0 0 3px 2px themed("primaryColor");
         }
     }
-    button[type="submit"]:hover {
+    .new-blog-submit-button:hover {
         @include themify($themes) {
             box-shadow: 0 0 3px 2px themed("primaryColor");
+        }
+    }
+    .comment-button:hover {
+        @include themify($themes) {
+            background-color: rgba(themed("primaryColor"), 0.1);
         }
     }
 }

@@ -1,0 +1,214 @@
+@import "../../scss/themes";
+@import "../../scss/sizes";
+
+.blog-show-wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 170px 30px 70px 30px;
+}
+
+.user-profile-card {
+    @include themify($themes) {
+        background-color: themed("userCardBg");
+        color: themed("secondaryTextColor");
+    }
+
+    padding: 25px;
+    border-radius: $borderRadius2;
+    transition: background-color $transitionTime;
+}
+.user-mini-card {
+    display: flex;
+    justify-content: center;
+}
+.user-mini-card > img {
+    width: 60px;
+}
+.user-mini-card-data {
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+}
+.user-mini-card-data > .full-name {
+    font-size: $h2FontSizeMedium;
+}
+.user-mini-card-data > .role {
+    font-size: $secondaryFontSizeLarge;
+}
+.user-mini-card-edit-button {
+    @include themify($themes) {
+        color: themed("secondaryTextColor");
+    }
+    background: none;
+    border: none;
+    border-radius: 50%;
+    margin: auto;
+    font-size: 30px;
+    padding: 5px;
+}
+.user-email,
+.user-password {
+    font-size: $primaryFontSizeLarge;
+    display: flex;
+    gap: 10px;
+}
+.user-email {
+    margin-top: 25px;
+}
+.user-password {
+    margin-top: 10px;
+}
+.user-email-icon,
+.user-password-icon {
+    font-size: 22px;
+}
+
+.user-show-hr {
+    @include themify($themes) {
+        background-color: themed("primaryTextColor");
+    }
+    height: 1px;
+    width: 30%;
+    margin: 30px auto;
+}
+
+.blogs-of-user-gradient {
+    width: 100%;
+    height: 50px;
+    @include themify($themes) {
+        background-image: radial-gradient(50% 50px at top, themed("secondaryTextColor") 75%, transparent);
+    }
+    margin-bottom: -25px;
+}
+
+.user-show-header {
+    @include themify($themes) {
+        color: themed("primaryTextColor");
+    }
+    font-size: $h1FontSizeMedium;
+    padding: 0px 25px;
+    margin-top: 75px;
+    margin-bottom: -20px;
+}
+
+.name-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-blog-wrapper > img {
+    display: block;
+    width: 100px;
+    margin: auto;
+}
+.delete-blog-message {
+    font-size: $primaryFontSizeLarge;
+    margin-top: 30px;
+}
+.delete-blog-title {
+    font-size: $h2FontSizeMedium;
+    margin-top: 10px;
+}
+.delete-blog-button {
+    @include themify($themes) {
+        color: themed("secondaryTextColor");
+    }
+    background-color: #ff0000;
+    width: 100%;
+    height: 35px;
+    margin-top: 30px;
+    border: none;
+    border-radius: $borderRadius2;
+    font-size: $primaryFontSizeLarge;
+    outline: none;
+    transition: box-shadow $transitionTime;
+}
+.delete-blog-button:active {
+    @include themify($themes) {
+        box-shadow: 0 0 3px 2px themed("secondaryTextColor");
+    }
+}
+
+.zero-blogs {
+    margin-top: 45px;
+    padding-left: 25px;
+}
+.zero-blogs-svg {
+    width: 150px;
+}
+.zero-blogs-message {
+    margin-top: 10px;
+    font-size: $primaryFontSizeLarge;
+    line-height: 1.3;
+}
+
+.skeleton-user-mini-card {
+    display: flex;
+    gap: 10px;
+}
+.skeleton-user-name-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+.skeleton-user-card-icon {
+    width: 60px;
+    height: 60px;
+}
+.skeleton-user-card-name {
+    width: 250px;
+    height: 30px;
+}
+.skeleton-user-card-role {
+    width: 100px;
+    height: 20px;
+}
+.skeleton-user-card-email {
+    width: 300px;
+    height: 25px;
+    margin-top: 25px;
+}
+.skeleton-user-card-password {
+    width: 250px;
+    height: 25px;
+    margin-top: 10px;
+}
+
+.skeleton-loader-for-blogs {
+    margin-top: 30px;
+}
+
+@media screen and (hover: hover) {
+    .user-mini-card-edit-button:hover {
+        @include themify($themes) {
+            background-color: themed("primaryColor");
+        }
+    }
+    .delete-blog-button:hover {
+        box-shadow: 0 0 3px 2px #ff0000;
+    }
+}
+
+@media only screen and (min-width: 961px) {
+    .blog-show-wrapper {
+        @include themify($themes) {
+            box-shadow: themed("elementWrapperBoxShadow");
+        }
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .blog-show-wrapper {
+        padding: 170px 0 70px 0;
+    }
+    .user-profile-card {
+        @include themify($themes) {
+            border: themed("elementWrapperBorder");
+            box-shadow: themed("elementWrapperBoxShadow");
+        }
+    }
+}

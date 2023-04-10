@@ -1,4 +1,4 @@
-import { GET_USER } from "../actions/types";
+import { GET_USER, EDIT_USER } from "../actions/types";
 
 const usersReducer = (state = {}, action) => {
     switch(action.type) {
@@ -9,6 +9,8 @@ const usersReducer = (state = {}, action) => {
                 lastName: action.payload.lastName
             };
             return { ...state, [user.id]: user };
+        case EDIT_USER:
+            return { ...state, [action.payload.id]: action.payload };
         default:
             return state;
     }

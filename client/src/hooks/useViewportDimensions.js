@@ -9,6 +9,8 @@ const getViewportDims = () => {
     };
 };
 
+// Hook that keeps track of viewport dimensions
+
 const useViewportDimensions = () => {
     const [viewportDims, setViewportDims] = useState(getViewportDims());
 

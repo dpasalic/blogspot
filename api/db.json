@@ -15,6 +15,14 @@
       "role": "user",
       "firstName": "Demir",
       "lastName": "Pasalic"
+    },
+    {
+      "email": "hehe@mailg.com",
+      "password": "$2a$10$1v2kAGRjmPt375Q43rLkYuOqzqxafxVth/k/oCdDUaYQeInr7Z8SC",
+      "firstName": "hehe",
+      "lastName": "meh",
+      "id": 75597,
+      "role": "user"
     }
   ],
   "blogs": [
@@ -24,9 +32,9 @@
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
       "userId": 99999,
       "createdAt": 1657696487,
-      "likes": 0,
+      "likes": 1,
       "dislikes": 0,
-      "comments": 0
+      "comments": 2
     },
     {
       "id": 431678,
@@ -46,7 +54,7 @@
       "createdAt": 1657696489,
       "likes": 0,
       "dislikes": 0,
-      "comments": 0
+      "comments": 1
     },
     {
       "id": 400129,
@@ -54,7 +62,7 @@
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
       "userId": 99999,
       "createdAt": 1657696490,
-      "likes": 0,
+      "likes": 2,
       "dislikes": 0,
       "comments": 0
     },
@@ -65,7 +73,7 @@
       "userId": 11111,
       "createdAt": "2023-02-07T22:40:27.636Z",
       "likes": 0,
-      "dislikes": 0,
+      "dislikes": 1,
       "comments": 0
     }
   ],
@@ -76,16 +84,54 @@
       "blogId": 999999,
       "userId": 99999,
       "createdAt": 1657804476
+    },
+    {
+      "id": 9990999,
+      "body": "It is nice!",
+      "blogId": 999999,
+      "userId": 99999,
+      "createdAt": 1657804477
+    },
+    {
+      "id": 9990099,
+      "body": "I tako malo po malo!",
+      "blogId": 720195,
+      "userId": 99999,
+      "createdAt": 1657804478
     }
   ],
   "interactions": [
     {
-      "id": 99999999,
-      "blogId": 999999,
-      "userId": 99999,
+      "id": 42032945,
+      "userId": 11111,
+      "blogId": 400129,
       "liked": true,
       "disliked": false,
-      "createdAt": 1657804440
+      "createdAt": 1679877218.829
+    },
+    {
+      "id": 58950962,
+      "userId": 99999,
+      "blogId": 400129,
+      "liked": true,
+      "disliked": false,
+      "createdAt": 1680141850.542
+    },
+    {
+      "id": 19872524,
+      "userId": 99999,
+      "blogId": 999999,
+      "liked": true,
+      "disliked": false,
+      "createdAt": 1680143048.761
+    },
+    {
+      "id": 73516565,
+      "userId": 99999,
+      "blogId": 203560,
+      "liked": false,
+      "disliked": true,
+      "createdAt": 1681077148.462
     }
   ]
 }

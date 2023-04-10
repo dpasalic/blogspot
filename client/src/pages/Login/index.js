@@ -5,7 +5,8 @@ import LoginForm from "./LoginForm"
 const Login = ({ logIn, loginError, showLoader, loader, location }) => {
     const onFormSubmit = (email, password) => {
         showLoader(true);
-        logIn({ email, password });
+        // timeout to showcase loader
+        setTimeout(() => logIn({ email, password }), 500);
     };
 
     return (

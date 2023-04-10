@@ -52,21 +52,29 @@
     left: 50%;
     transform: translate(-50.4%, -50%);
     width: $containerWidthLarge;
+    max-height: 90vh;
     padding: 40px;
     border-radius: $borderRadius2;
+    overflow-y: scroll;
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding-bottom: 45px;
 }
 .modal-header > h2 {
     font-size: $h2FontSizeLarge;
 }
+.modal-header > h2 > div {
+    font-size: $secondaryFontSizeLarge;
+    margin-top: 10px;
+    font-weight: normal;
+}
 .modal-header > .close-icon {
     padding: 5px;
+    margin-left: 30px;
     font-size: 30px;
     border-radius: 50%;
     cursor: pointer;
@@ -110,5 +118,24 @@
     .modal-body {
         top: unset;
         transform: translateX(-50.4%);
+    }
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 5px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+    /* Foreground */
+    background: #999;
+    border-radius: 5px;
+}
+.modal-body::-webkit-scrollbar-track {
+    /* Background */
+    background: transparent;
+}
+@media only screen and (hover: hover) {
+    .modal-body::-webkit-scrollbar-thumb:hover {
+        /* Foreground */
+        background: #333;
     }
 }

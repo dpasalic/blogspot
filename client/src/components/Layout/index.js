@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import Navigation from "../Navigation";
 import "./layout.scss";
 
 const Layout = ({ children, theme }) => {

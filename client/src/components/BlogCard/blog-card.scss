@@ -7,15 +7,13 @@
         color: themed("primaryTextColor");
     }
 
-    display: block;
+    position: relative;
     margin-top: 30px;
     padding: 25px;
     border: 1px solid transparent;
     border-radius: $borderRadius2;
-    text-decoration: none;
     transition: border $transitionTime, opacity $transitionTime, background-color $transitionTime;
-    cursor: pointer;
-    outline: none;
+    overflow: hidden;
 }
 .blog-card:active {
     opacity: 0.8;
@@ -39,6 +37,16 @@
     @include themify($themes) {
         outline: 3px solid themed("primaryTextColor");
     }
+}
+
+.blog-card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    outline: none;
 }
 
 .blog-card-top {
@@ -75,8 +83,9 @@
     all: unset;
     padding: 0 5px;
     border-radius: $borderRadius2;
-    transition: background-color $transitionTime, box-shadow $transitionTime;
+    transition: box-shadow $transitionTime;
     cursor: default;
+    z-index: 999;
 }
 .blog-card-footer > button {
     all: unset;

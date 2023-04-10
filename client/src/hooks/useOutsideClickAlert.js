@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 
-function useOutsideAlerter(ref) {
+// Hook that keeps track of clicks outside of element passed as ref
+// Used for dropdown menu
+
+function useOutsideClickAlert(ref) {
     const [outsideClickBool, setOutsideClickBool] = useState(false);
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
+        const handleClickOutside = event => {
             if (ref.current && !ref.current.contains(event.target)) {
                 setOutsideClickBool(true);
             } else {
@@ -22,4 +25,4 @@ function useOutsideAlerter(ref) {
     return outsideClickBool;
 }
 
-export default useOutsideAlerter;
+export default useOutsideClickAlert;

@@ -4,28 +4,28 @@ import Draggable from "react-draggable";
 const SwitchButton = ({ changeTheme, theme }) => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
+    // Set theme based on saved theme in local storage on first load
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
 
-        if (savedTheme === "light") {
-            setPosition({ x: 0, y: 0 });
+        if (savedTheme === "verdant") {
+            setPosition({ x: 70, y: 0 });
         } else if (savedTheme === "dark") {
             setPosition({ x: 35, y: 0 });
         } else {
-            setPosition({ x: 70, y: 0 });
+            setPosition({ x: 0, y: 0 });
         }
     }, []);
 
     const setTheme = (theme) => {
+        changeTheme(theme);
+
         if (theme === "light") {
             setPosition({ x: 0, y: 0 });
-            changeTheme("light");
         } else if (theme === "dark") {
             setPosition({ x: 35, y: 0 });
-            changeTheme("dark");
         } else {
             setPosition({ x: 70, y: 0 });
-            changeTheme("verdant");
         }
     };
 
@@ -39,6 +39,7 @@ const SwitchButton = ({ changeTheme, theme }) => {
         }
     };
 
+    // Allow switching theme using keyboard arrows
     const onKeySwitch = (event) => {
         if (event.keyCode === 39) {
             if (theme === "light") {

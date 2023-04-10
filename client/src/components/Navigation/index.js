@@ -13,7 +13,7 @@ import darkLogo from "../../assets/dark-logo.png";
 import verdantLogo from "../../assets/verdant-logo.png";
 import "./navigation.scss";
 
-const Navigation = ({ setTheme, logOut, isLoggedIn, theme }) => {
+const Navigation = ({ setTheme, logOut, isLoggedIn, userId, theme, currentBlog }) => {
     const SCROLL_STEP = 45;
     const scrollPos = useScrollPos(SCROLL_STEP);
     const viewportDims = useViewportDimensions();
@@ -50,14 +50,20 @@ const Navigation = ({ setTheme, logOut, isLoggedIn, theme }) => {
             {viewportDims.width > 1500 ?
                 <HorizontalMenu
                     logOut={logOut}
-                    isLoggedIn={isLoggedIn} /> :
+                    isLoggedIn={isLoggedIn}
+                    userId={userId}
+                    currentBlog={currentBlog} /> :
                 viewportDims.width > 640 ?
                     <DropdownMenu
                         logOut={logOut}
-                        isLoggedIn={isLoggedIn} /> :
+                        isLoggedIn={isLoggedIn}
+                        userId={userId}
+                        currentBlog={currentBlog} /> :
                     <VerticalMenu
                         logOut={logOut}
-                        isLoggedIn={isLoggedIn}>
+                        isLoggedIn={isLoggedIn}
+                        userId={userId}
+                        currentBlog={currentBlog}>
                         <SwitchButton
                             theme={theme}
                             changeTheme={onThemeChange} />
@@ -69,7 +75,9 @@ const Navigation = ({ setTheme, logOut, isLoggedIn, theme }) => {
 const mapStateToProps = (state) => {
     return {
         isLoggedIn: state.auth.isLoggedIn,
-        theme: state.theme
+        userId: state.auth.userId,
+        theme: state.theme,
+        currentBlog: state.readList.currentBlog
     };
 };
 

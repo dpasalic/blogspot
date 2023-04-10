@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 
-const useScrollPos = (scrollStep) => {
+// Hook that keeps track of glass wrapper scroll position
+// Used for navigation
+
+const useScrollPos = scrollStep => {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-    const onGlassWrapperScroll = (event) => {
+    const onGlassWrapperScroll = event => {
         const scrollPos = event.target.scrollTop;
 
         if (Math.abs(scrollPos - prevScrollPos) > scrollStep) {

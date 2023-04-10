@@ -2,16 +2,17 @@ import { useLocation } from "react-router-dom";
 import NavigationLink from "./NavigationLink";
 import "./horizontal-menu.scss";
 
-const HorizontalMenu = ({ logOut, isLoggedIn }) => {
+const HorizontalMenu = ({ logOut, isLoggedIn, userId, currentBlog }) => {
     const location = useLocation();
 
+    // Set classname for page indicator based on previous and current route
     const addPickerClassName = () => {
         const currentPath = location.pathname;
         const prevPath = location.state ? location.state.prevPath : "/"
 
         if (!prevPath) {
             return "";
-        }  else if (currentPath === "/" && (prevPath === "/login" || prevPath.includes("users"))) {
+        } else if (currentPath === "/" && (prevPath === "/login" || prevPath.includes("users"))) {
             return "blog-list-from-far-right";
         } else if (currentPath === "/") {
             return "blog-list-from-right";
@@ -48,11 +49,11 @@ const HorizontalMenu = ({ logOut, isLoggedIn }) => {
                             icon="home"
                             currentRoute={location.pathname} />
                         <NavigationLink
-                            to="/readlist"
+                            to={currentBlog ? `/readlist?blogId=${currentBlog.id}` : "/readlist"}
                             icon="chrome_reader_mode"
                             currentRoute={location.pathname} />
                         <NavigationLink
-                            to={`/users/99`}
+                            to={`/users/${userId}`}
                             icon="person"
                             currentRoute={location.pathname} />
                         <NavigationLink

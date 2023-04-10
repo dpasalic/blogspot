@@ -100,9 +100,9 @@
 .dropdown-menu a {
     opacity: 0;
     animation: dropdown-menu-link-fade-in 200ms forwards;
-    $animationDelayStep: 100;
+    $animationDelayStep: 75;
 
-    @for $i from 1 through 4 {
+    @for $i from 1 through 5 {
         &:nth-child(#{$i}) {
             animation-delay: calc(0ms + #{$animationDelayStep * $i}ms);
         }

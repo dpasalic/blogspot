@@ -18,7 +18,8 @@ $themes: (
         elementWrapperBoxShadow: $lightElementWrapperBoxShadow,
         elementWrapperBorder: $lightElementWrapperBorder,
         switchButtonColor: $lightSwitchButtonColor,
-        switchAnimationColor: $lightSwitchAnimationColor
+        switchAnimationColor: $lightSwitchAnimationColor,
+        userCardBg: $lightUserCardBg
     ),
     dark: (
         primaryColor: $darkPrimaryColor,
@@ -37,7 +38,8 @@ $themes: (
         elementWrapperBoxShadow: $darkElementWrapperBoxShadow,
         elementWrapperBorder: $darkElementWrapperBorder,
         switchButtonColor: $darkSwitchButtonColor,
-        switchAnimationColor: $darkSwitchAnimationColor
+        switchAnimationColor: $darkSwitchAnimationColor,
+        userCardBg: $darkUserCardBg
     ),
     verdant: (
         primaryColor: $verdantPrimaryColor,
@@ -56,7 +58,8 @@ $themes: (
         elementWrapperBoxShadow: $verdantElementWrapperBoxShadow,
         elementWrapperBorder: $verdantElementWrapperBorder,
         switchButtonColor: $verdantSwitchButtonColor,
-        switchAnimationColor: $verdantSwitchAnimationColor
+        switchAnimationColor: $verdantSwitchAnimationColor,
+        userCardBg: $verdantUserCardBg
     )
 );
 

@@ -1,7 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./input.scss";
-
-// Input used for login and signup forms
 
 const TextInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) => {
     const [labelFocused, setLabelFocused] = useState(false);
@@ -13,6 +11,13 @@ const TextInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) =
             setLabelFocused(false);
         }
     };
+
+    // Set label as focused on value change - needed when modal is reopened
+    useEffect(() => {
+        if (value) {
+            setLabelFocused(true);
+        }
+    }, [value]);
 
     return (
         <div className="input-wrapper">

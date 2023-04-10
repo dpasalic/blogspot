@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import NavigationLink from "./NavigationLink";
 import FocusTrap from "focus-trap-react";
+import NavigationLink from "./NavigationLink";
 import "./vertical-menu.scss";
 
-const VerticalMenu = ({ logOut, isLoggedIn, children }) => {
+const VerticalMenu = ({ logOut, isLoggedIn, userId, currentBlog, children }) => {
     const [menuActive, setMenuActive] = useState(false);
     const [menuClassName, setMenuClassName] = useState("hide-vertical-menu");
     const [barClassName, setBarClassName] = useState("");
@@ -12,9 +12,10 @@ const VerticalMenu = ({ logOut, isLoggedIn, children }) => {
 
     const location = useLocation();
 
-    const onMenuActivityChange = (e) => {
+    // Set menu trap focus and animation classnames on menu button click
+    const onMenuActivityChange = e => {
         const menuButtonIcon = e ? e.target.innerHTML : null;
-        
+
         if (menuButtonIcon === "clear_all") {
             setMenuClassName("show-vertical-menu");
             setBarClassName("bar-slide-in");
@@ -28,6 +29,7 @@ const VerticalMenu = ({ logOut, isLoggedIn, children }) => {
         setMenuActive(!menuActive);
     };
 
+    // Hide menu after animation ends
     const onMenuAnimationEnd = (e) => {
         if (e.animationName === "visually-hide-vertical-menu") {
             setMenuClassName("hide-vertical-menu");
@@ -62,7 +64,12 @@ const VerticalMenu = ({ logOut, isLoggedIn, children }) => {
                                     onLinkClick={onMenuActivityChange}
                                     currentRoute={location.pathname} />
                                 <NavigationLink
-                                    to={`/users/99`}
+                                    to={currentBlog ? `/readlist?blogId=${currentBlog.id}` : "/readlist"}
+                                    icon="chrome_reader_mode"
+                                    onLinkClick={onMenuActivityChange}
+                                    currentRoute={location.pathname} />
+                                <NavigationLink
+                                    to={`/users/${userId}`}
                                     icon="person"
                                     onLinkClick={onMenuActivityChange}
                                     currentRoute={location.pathname} />

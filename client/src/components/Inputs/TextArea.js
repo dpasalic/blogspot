@@ -1,9 +1,7 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import "./input.scss";
 
-// Input used for login and signup forms
-
-const TextInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) => {
+const TextArea = ({ id, label, value, onChange, tabIndex, autoFocus, error }) => {
     const [labelFocused, setLabelFocused] = useState(false);
 
     const onInputFocusChange = () => {
@@ -44,4 +42,4 @@ const TextInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) =
     );
 };
 
-export default TextInput;
+export default TextArea;

@@ -1,12 +1,17 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./input.scss";
-
-// Input used for login and signup forms
 
 const PasswordInput = ({ id, label, value, onChange, tabIndex, autoFocus, error }) => {
     const [labelFocused, setLabelFocused] = useState(false);
     const [passwordVisible, setPasswordVisible] = useState(false);
     const ref = useRef(null);
+
+    // Set label as focused on value change - needed when modal is reopened
+    useEffect(() => {
+        if (value) {
+            setLabelFocused(true);
+        }
+    }, [value]);
 
     const onInputFocusChange = () => {
         if (value) {
@@ -16,6 +21,7 @@ const PasswordInput = ({ id, label, value, onChange, tabIndex, autoFocus, error 
         }
     };
 
+    // Focus input field when password visibility changed
     const onPasswordVisibilityChange = () => {
         setPasswordVisible(!passwordVisible);
         ref.current.focus();
