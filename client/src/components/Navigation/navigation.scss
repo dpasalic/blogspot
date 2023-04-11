@@ -10,9 +10,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 99999;
-    transition:
-        height $transitionTime,
-        background-color $transitionTime;
+    transition: height $transitionTime, background-color $transitionTime;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
 }
@@ -21,7 +19,7 @@
 }
 .navigation-low {
     @include themify($themes) {
-        background-color: rgba(themed("contextColor"), .95);
+        background-color: rgba(themed("contextColor"), 0.95);
     }
 
     height: 70px;
@@ -129,4 +127,46 @@
     align-items: center;
     font-size: 10px;
     cursor: pointer;
+}
+
+.readlist-notification::after {
+    @include themify($themes) {
+        background-color: themed("primaryColor");
+    }
+    content: attr(data-readlist-blogs-number);
+    position: absolute;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+}
+.readlist-show-notification::after {
+    animation: show-notification 300ms forwards;
+}
+@keyframes show-notification {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.readlist-increase-notification::after {
+    animation: increase-notification 300ms forwards;
+}
+@keyframes increase-notification {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

@@ -1,14 +1,15 @@
 import { useLocation } from "react-router-dom";
 import NavigationLink from "./NavigationLink";
+import ReadListNavigationLink from "./ReadListNavigationLink";
 import "./horizontal-menu.scss";
 
-const HorizontalMenu = ({ logOut, isLoggedIn, userId, currentBlog }) => {
+const HorizontalMenu = ({ logOut, isLoggedIn, userId, currentBlog, numberOfBlogsInReadlist }) => {
     const location = useLocation();
 
     // Set classname for page indicator based on previous and current route
-    const addPickerClassName = () => {
+    const addIndicatorClassName = () => {
         const currentPath = location.pathname;
-        const prevPath = location.state ? location.state.prevPath : "/"
+        const prevPath = location.state ? location.state.prevPath : "/";
 
         if (!prevPath) {
             return "";
@@ -36,6 +37,8 @@ const HorizontalMenu = ({ logOut, isLoggedIn, userId, currentBlog }) => {
             return "login-from-right";
         } else if (currentPath === "/signup") {
             return "signup-from-left";
+        } else {
+            return "hide-indicator";
         }
     };
 
@@ -48,10 +51,11 @@ const HorizontalMenu = ({ logOut, isLoggedIn, userId, currentBlog }) => {
                             to="/"
                             icon="home"
                             currentRoute={location.pathname} />
-                        <NavigationLink
+                        <ReadListNavigationLink
                             to={currentBlog ? `/readlist?blogId=${currentBlog.id}` : "/readlist"}
                             icon="chrome_reader_mode"
-                            currentRoute={location.pathname} />
+                            currentRoute={location.pathname}
+                            numberOfBlogsInReadlist={numberOfBlogsInReadlist} />
                         <NavigationLink
                             to={`/users/${userId}`}
                             icon="person"
@@ -77,7 +81,7 @@ const HorizontalMenu = ({ logOut, isLoggedIn, userId, currentBlog }) => {
             <div className={`
                     page-indicator
                     ${location.pathname.includes("users") ? "/users/id" : location.pathname}
-                    ${addPickerClassName()}
+                    ${addIndicatorClassName()}
                 `}></div>
         </div>
     );

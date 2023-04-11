@@ -8,7 +8,10 @@ import BlogCard from "../../components/BlogCard";
 import deleteBlogSVG from "../../assets/delete-blog.svg";
 import "./blog-list.scss";
 
-const BlogList = ({ getBlogsAndUI, createBlog, deleteBlog, getComments, createComment, user, blogs, comments, theme }) => {
+const BlogList = ({
+    getBlogsAndUI, createBlog, deleteBlog, getComments, createComment,
+    user, blogs, comments, theme
+}) => {
     const [newBlogModalOpen, setNewBlogModalOpen] = useState(false);
     const [commentsModalOpen, setCommentsModalOpen] = useState(false);
     const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -16,10 +19,10 @@ const BlogList = ({ getBlogsAndUI, createBlog, deleteBlog, getComments, createCo
     const [currentCommentsBlog, setCurrentCommentsBlog] = useState({});
     const [currentCommentsUser, setCurrentCommentsUser] = useState({});
 
+    // Fetch blogs only on first load
+    // and after switching from readlist where
+    // one blog was fetched
     useEffect(() => {
-        // Fetch blogs only on first load
-        // and after switching from readlist where
-        // one blog was fetched
         if (user && blogs.length <= 1) {
             getBlogsAndUI();
         }
@@ -42,10 +45,11 @@ const BlogList = ({ getBlogsAndUI, createBlog, deleteBlog, getComments, createCo
         });
     };
 
-    const onBlogDeleteClick = (blog) => {
+    const onBlogDeleteClick = blog => {
         setDeleteModalOpen(true);
         setCurrentDeleteBlog(blog);
     };
+
     const onBlogDeleteSubmit = () => {
         deleteBlog(currentDeleteBlog.id);
         setDeleteModalOpen(false);
@@ -98,9 +102,6 @@ const BlogList = ({ getBlogsAndUI, createBlog, deleteBlog, getComments, createCo
         </div>
     );
 };
-
-// Notification circle of blogs to read on
-// readlist link button
 
 const mapStateToProps = (state) => {
     return {

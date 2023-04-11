@@ -2,9 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useOutsideClickAlert from "../../hooks/useOutsideClickAlert";
 import NavigationLink from "./NavigationLink";
+import ReadListNavigationLink from "./ReadListNavigationLink";
 import "./dropdown-menu.scss";
 
-const DropdownMenu = ({ logOut, isLoggedIn, userId, currentBlog }) => {
+const DropdownMenu = ({ logOut, isLoggedIn, userId, currentBlog, numberOfBlogsInReadlist }) => {
     const [menuButtonClick, setMenuButtonClick] = useState(false);
     const [menuActive, setMenuActive] = useState(false);
     const [animationActive, setAnimationActive] = useState(false);
@@ -69,11 +70,12 @@ const DropdownMenu = ({ logOut, isLoggedIn, userId, currentBlog }) => {
                             icon="home"
                             onLinkClick={() => setAnimationActive(false)}
                             currentRoute={location.pathname} />
-                        <NavigationLink
+                        <ReadListNavigationLink
                             to={currentBlog ? `/readlist?blogId=${currentBlog.id}` : "/readlist"}
                             icon="chrome_reader_mode"
                             onLinkClick={() => setAnimationActive(false)}
-                            currentRoute={location.pathname} />
+                            currentRoute={location.pathname}
+                            numberOfBlogsInReadlist={numberOfBlogsInReadlist} />
                         <NavigationLink
                             to={`/users/${userId}`}
                             icon="person"

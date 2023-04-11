@@ -5,7 +5,7 @@ import "./blog-card.scss";
 
 const BlogCard = ({
     blogAuthorForUserShow, addReadingBlog, addToReadList, createInteraction, deleteInteraction,
-    blog, onBlogDeleteClick, onCommentsClick, loggedUser, blogAuthor, blogsToRead, interaction
+    blog, onBlogDeleteClick, onCommentsClick, loggedUser, blogAuthor, blogsToRead, currentBlog, interaction
 }) => {
     const user = blogAuthor || blogAuthorForUserShow;
     if (!user) {
@@ -22,6 +22,9 @@ const BlogCard = ({
 
         if (!blogsToRead.find(e => e.id === blog.id)) {
             addToReadList(blog);
+        }
+        if (!currentBlog) {
+            addReadingBlog(blog);
         }
     };
 
@@ -125,6 +128,7 @@ const mapStateToProps = (state, ownProps) => {
         loggedUser: state.auth.userId,
         blogAuthor: state.users[ownProps.blog.userId],
         blogsToRead: state.readList.blogsToRead,
+        currentBlog: state.readList.currentBlog,
         interaction: state.interactions.find(intr => intr.blogId === ownProps.blog.id && intr.userId === state.auth.userId)
     };
 };

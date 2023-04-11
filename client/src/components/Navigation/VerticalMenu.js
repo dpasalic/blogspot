@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import FocusTrap from "focus-trap-react";
 import NavigationLink from "./NavigationLink";
+import ReadListNavigationLink from "./ReadListNavigationLink";
 import "./vertical-menu.scss";
 
-const VerticalMenu = ({ logOut, isLoggedIn, userId, currentBlog, children }) => {
+const VerticalMenu = ({ logOut, isLoggedIn, userId, currentBlog, numberOfBlogsInReadlist, children }) => {
     const [menuActive, setMenuActive] = useState(false);
     const [menuClassName, setMenuClassName] = useState("hide-vertical-menu");
     const [barClassName, setBarClassName] = useState("");
@@ -63,11 +64,12 @@ const VerticalMenu = ({ logOut, isLoggedIn, userId, currentBlog, children }) => 
                                     icon="home"
                                     onLinkClick={onMenuActivityChange}
                                     currentRoute={location.pathname} />
-                                <NavigationLink
+                                <ReadListNavigationLink
                                     to={currentBlog ? `/readlist?blogId=${currentBlog.id}` : "/readlist"}
                                     icon="chrome_reader_mode"
                                     onLinkClick={onMenuActivityChange}
-                                    currentRoute={location.pathname} />
+                                    currentRoute={location.pathname}
+                                    numberOfBlogsInReadlist={numberOfBlogsInReadlist} />
                                 <NavigationLink
                                     to={`/users/${userId}`}
                                     icon="person"

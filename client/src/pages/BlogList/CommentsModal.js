@@ -1,28 +1,36 @@
 import { useState, useEffect } from "react";
 import { formatTimeAgo } from "../../helpers";
+import Modal from "../../components/Modal";
+import TextInput from "../../components/Inputs/TextInput";
 import lightNoCommentSVG from "../../assets/light-no-comment.svg";
 import darkNoCommentSVG from "../../assets/dark-no-comment.svg";
 import verdantNoCommentSVG from "../../assets/verdant-no-comment.svg";
-import Modal from "../../components/Modal";
-import TextInput from "../../components/Inputs/TextInput";
 
-const CommentsModal = ({ modalOpen, setModalOpen, currentCommentsBlog, currentCommentsUser, comments, createComment, theme }) => {
+const CommentsModal = ({
+    modalOpen, setModalOpen, currentCommentsBlog, currentCommentsUser,
+    comments, createComment, theme
+}) => {
     const [comment, setComment] = useState("");
     const [allCommentsLength, setAllCommentsLength] = useState(0);
 
+    // Clear comment input after modal close
     useEffect(() => {
         if (!modalOpen) {
             setComment("");
         }
     }, [modalOpen]);
 
-    // ------------------------------------------
-
     const renderComments = () => {
-        const commentsArr = Object.values(comments).filter(el => el.blogId === currentCommentsBlog.id);
+        // Extract comments for current blog
+        const commentsArr = Object.values(comments)
+            .filter(com => com.blogId === currentCommentsBlog.id);
+
+        // Set comments array length
         if (allCommentsLength !== commentsArr.length) {
             setAllCommentsLength(commentsArr.length);
         }
+
+        // Return appropriate illustration when there are no comments
         if (commentsArr.length === 0) {
             return <img
                 src={theme === "light" ? lightNoCommentSVG :
@@ -30,6 +38,7 @@ const CommentsModal = ({ modalOpen, setModalOpen, currentCommentsBlog, currentCo
                 alt="no comment illustration"
                 className="no-comment-png" />;
         }
+        
         return commentsArr.map(com => {
             const timestamp = formatTimeAgo(new Date(com.createdAt * 1000));
             return <div

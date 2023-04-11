@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
-import { setTheme, logOut } from "../../actions";
+import { setTheme, logOut, addReadingBlog } from "../../actions";
 import SwitchButton from "./SwitchButton";
 import HorizontalMenu from "./HorizontalMenu";
 import DropdownMenu from "./DropdownMenu";
@@ -13,7 +13,7 @@ import darkLogo from "../../assets/dark-logo.png";
 import verdantLogo from "../../assets/verdant-logo.png";
 import "./navigation.scss";
 
-const Navigation = ({ setTheme, logOut, isLoggedIn, userId, theme, currentBlog }) => {
+const Navigation = ({ setTheme, logOut, isLoggedIn, userId, theme, currentBlog, numberOfBlogsInReadlist }) => {
     const SCROLL_STEP = 45;
     const scrollPos = useScrollPos(SCROLL_STEP);
     const viewportDims = useViewportDimensions();
@@ -52,18 +52,21 @@ const Navigation = ({ setTheme, logOut, isLoggedIn, userId, theme, currentBlog }
                     logOut={logOut}
                     isLoggedIn={isLoggedIn}
                     userId={userId}
-                    currentBlog={currentBlog} /> :
+                    currentBlog={currentBlog}
+                    numberOfBlogsInReadlist={numberOfBlogsInReadlist} /> :
                 viewportDims.width > 640 ?
                     <DropdownMenu
                         logOut={logOut}
                         isLoggedIn={isLoggedIn}
                         userId={userId}
-                        currentBlog={currentBlog} /> :
+                        currentBlog={currentBlog}
+                        numberOfBlogsInReadlist={numberOfBlogsInReadlist} /> :
                     <VerticalMenu
                         logOut={logOut}
                         isLoggedIn={isLoggedIn}
                         userId={userId}
-                        currentBlog={currentBlog}>
+                        currentBlog={currentBlog}
+                        numberOfBlogsInReadlist={numberOfBlogsInReadlist}>
                         <SwitchButton
                             theme={theme}
                             changeTheme={onThemeChange} />
@@ -77,7 +80,8 @@ const mapStateToProps = (state) => {
         isLoggedIn: state.auth.isLoggedIn,
         userId: state.auth.userId,
         theme: state.theme,
-        currentBlog: state.readList.currentBlog
+        currentBlog: state.readList.currentBlog,
+        numberOfBlogsInReadlist: state.readList.blogsToRead.length
     };
 };
 

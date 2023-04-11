@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import { validateNewBlog } from "../../helpers";
 import Modal from "../../components/Modal";
 import TextInput from "../../components/Inputs/TextInput";
 import TextArea from "../../components/Inputs/TextArea";
-import { validateNewBlog } from "../../helpers";
 
 const NewBlogModal = ({ modalOpen, setModalOpen, createBlog }) => {
     const [title, setTitle] = useState("");
@@ -10,6 +10,7 @@ const NewBlogModal = ({ modalOpen, setModalOpen, createBlog }) => {
     const [validate, setValidate] = useState(false);
     const [errors, setErrors] = useState({});
 
+    // If validation is active check for error on every input change
     useEffect(() => {
         if (validate) {
             const errors = validateNewBlog(title, body);
@@ -17,10 +18,8 @@ const NewBlogModal = ({ modalOpen, setModalOpen, createBlog }) => {
         }
     }, [title, body]);
 
-    const onNewBlogSubmit = (e) => {
+    const onNewBlogSubmit = e => {
         e.preventDefault();
-
-        if (!validate) { setValidate(true); }
 
         const errors = validateNewBlog(title, body);
         if (Object.keys(errors).length === 0) {
@@ -30,6 +29,8 @@ const NewBlogModal = ({ modalOpen, setModalOpen, createBlog }) => {
             setTitle("");
             setBody("");
         } else {
+            // Activate validation on every input change
+            if (!validate) { setValidate(true); }
             setErrors(errors);
         }
     };

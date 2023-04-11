@@ -1,0 +1,24 @@
+@import "../../scss/themes";
+@import "../../scss/sizes";
+
+.error-page-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-illustration {
+    width: 100%;
+}
+
+.error-page-h2-first {
+    margin-top: 30px;
+    font-size: $h2FontSizeMedium;
+}
+.error-page-h2-second {
+    margin-top: 10px;
+    font-size: $h2FontSizeMedium;
+    font-weight: 900;
+}

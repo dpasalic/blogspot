@@ -15,6 +15,7 @@
         color: themed("primaryTextColor");
     }
 
+    position: relative;
     display: block;
     outline: none;
     border: 3px solid transparent;
@@ -211,6 +212,11 @@
 .login-from-right {
     animation: login-from-right 400ms forwards;
 }
+.hide-indicator {
+    display: none;
+}
+
+
 @keyframes login-from-right {
     0% {
         transform: translateX(110px);
