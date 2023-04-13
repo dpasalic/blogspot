@@ -5,7 +5,10 @@ import NavigationLink from "./NavigationLink";
 import ReadListNavigationLink from "./ReadListNavigationLink";
 import "./vertical-menu.scss";
 
-const VerticalMenu = ({ logOut, isLoggedIn, userId, currentBlog, numberOfBlogsInReadlist, children }) => {
+const VerticalMenu = ({
+    logOut, isLoggedIn, userId, currentBlog,
+    numberOfBlogsInReadlist, children
+}) => {
     const [menuActive, setMenuActive] = useState(false);
     const [menuClassName, setMenuClassName] = useState("hide-vertical-menu");
     const [barClassName, setBarClassName] = useState("");

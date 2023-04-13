@@ -1,25 +1,28 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getUser, getBlogsOfUser, editUser } from "../../api";
-import { getComments, getAllInteractionsOfUser, createComment, deleteBlog, editUserReduxState, getBlogsToReduxState } from "../../actions";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import lightUserIconSVG from "../../assets/light-user-icon.svg";
-import darkUserIconSVG from "../../assets/dark-user-icon.svg";
-import verdantUserIconSVG from "../../assets/verdant-user-icon.svg";
+import { getUser, getBlogsOfUser, editUser } from "../../api";
+import { getComments, getAllInteractionsOfUser, createComment, deleteBlog, editUserReduxState } from "../../actions";
 import BlogCard from "../../components/BlogCard";
 import Modal from "../../components/Modal";
 import CommentsModal from "../BlogList/CommentsModal";
 import EditUserModal from "./EditUserModal";
 import SkeletonLoaderForUser from "./SkeletonLoaderForUser";
 import SkeletonLoaderForBlogs from "./SkeletonLoaderForBlogs";
+import lightUserIconSVG from "../../assets/light-user-icon.svg";
+import darkUserIconSVG from "../../assets/dark-user-icon.svg";
+import verdantUserIconSVG from "../../assets/verdant-user-icon.svg";
 import deleteBlogSVG from "../../assets/delete-blog.svg";
 import lightEmptyReadListSVG from "../../assets/light-empty-readlist.svg";
 import darkEmptyReadListSVG from "../../assets/dark-empty-readlist.svg";
 import verdantEmptyReadListSVG from "../../assets/verdant-empty-readlist.svg";
 import "./user-show.scss";
 
-const UserShow = ({ getComments, getAllInteractionsOfUser, createComment, deleteBlog, editUserReduxState, getBlogsToReduxState, loggedUser, theme, comments }) => {
+const UserShow = ({
+    getComments, getAllInteractionsOfUser, createComment, deleteBlog,
+    editUserReduxState, loggedUser, theme, comments
+}) => {
     const [user, setUser] = useState({});
     const [blogsOfUser, setBlogsOfUser] = useState(null);
     const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -33,6 +36,7 @@ const UserShow = ({ getComments, getAllInteractionsOfUser, createComment, delete
     const isProfileOfLoggedUser = userId == loggedUser;
     const blogsOfUserLength = blogsOfUser ? blogsOfUser.length : "...";
 
+    // Fetch user data and blogs
     useEffect(() => {
         if ((!user.id && loggedUser) || user.id) {
             setTimeout(() => {
@@ -46,13 +50,10 @@ const UserShow = ({ getComments, getAllInteractionsOfUser, createComment, delete
                 getBlogsOfUser(userId)
                     .then(res => {
                         setBlogsOfUser(res.data);
-                        //getBlogsToReduxState(res.data);
                     });
             }, 1000);
         }
     }, [loggedUser, userId]);
-
-    // Get interactions on user show page
 
     const renderBlogsOfUser = () => {
         if (blogsOfUser === null) {
@@ -82,7 +83,7 @@ const UserShow = ({ getComments, getAllInteractionsOfUser, createComment, delete
         }
     };
 
-    const onEditUserClick = (e) => {
+    const onEditUserClick = () => {
         setEditUserModalOpen(true);
     };
 
@@ -94,13 +95,13 @@ const UserShow = ({ getComments, getAllInteractionsOfUser, createComment, delete
             });
     };
 
-    const onCommentsClick = (blog) => {
+    const onCommentsClick = blog => {
         setCommentsModalOpen(true);
         setCurrentCommentsBlog(blog);
         getComments(blog.id);
     };
 
-    const onBlogDeleteClick = (blog) => {
+    const onBlogDeleteClick = blog => {
         setDeleteModalOpen(true);
         setCurrentDeleteBlog(blog);
     };
@@ -109,9 +110,6 @@ const UserShow = ({ getComments, getAllInteractionsOfUser, createComment, delete
         setDeleteModalOpen(false);
         setBlogsOfUser(blogsOfUser.filter(b => b.id !== currentDeleteBlog.id));
     };
-
-    // implement and update skeleton loading where needed
-    // implement loader where needed
 
     return (
         <div className="blog-show-wrapper">
@@ -205,5 +203,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    { getComments, getAllInteractionsOfUser, createComment, deleteBlog, editUserReduxState, getBlogsToReduxState }
+    { getComments, getAllInteractionsOfUser, createComment, deleteBlog, editUserReduxState }
 )(UserShow);

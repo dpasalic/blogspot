@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
-const ListIndicator = ({ list, currentPosition, readBlogsLength, switchClick }) => {
+const ListIndicator = ({ list, readBlogsLength, switchClick }) => {
     const [listOffset, setListOffset] = useState(20 * readBlogsLength + 10);
     const [mainDotAnimation, setMainDotAnimation] = useState("");
 
     useEffect(() => {
+        // Move list indicator to the right direction on every switch
         if (switchClick.left) {
             setListOffset(listOffset - 20);
         } else if (switchClick.right) {

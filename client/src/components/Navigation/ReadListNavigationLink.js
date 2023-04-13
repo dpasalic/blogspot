@@ -1,24 +1,32 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const NavigationLink = ({ to, icon, onLinkClick, currentRoute, numberOfBlogsInReadlist, className }) => {
+// Navigation link button for Readlist
+// Made separate because of notification implementation
+
+const ReadListNavigationLink = ({
+    to, icon, onLinkClick, currentRoute,
+    numberOfBlogsInReadlist, className
+}) => {
     const [increaseNotificationClassName, setIncreaseNotificationClassName] = useState("");
     const location = useLocation();
 
     const isActive = currentRoute === to;
+
+    // Extract readlist string from "to" prop
     const isReadListLink = to.substr(1, 8) === "readlist";
 
     useEffect(() => {
+        // Fire animation of notification increasing
+        // on every new blog added to Readlist
+        // Remove animation class after timeout
+        // so animation can fire again
         if (numberOfBlogsInReadlist > 1) {
             setIncreaseNotificationClassName("readlist-increase-notification");
 
             setTimeout(() => setIncreaseNotificationClassName(""), 300);
         }
     }, [numberOfBlogsInReadlist]);
-
-    // Finish implementing readlist notification
-    // Fix readlist bug where readlist appears empty on direct click
-    // even tho there are blogs to read
 
     return (
         <Link
@@ -40,4 +48,4 @@ const NavigationLink = ({ to, icon, onLinkClick, currentRoute, numberOfBlogsInRe
     );
 };
 
-export default NavigationLink;
+export default ReadListNavigationLink;

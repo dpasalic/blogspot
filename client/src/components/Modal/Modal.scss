@@ -1,5 +1,5 @@
 @import "../../scss/themes";
-@import "../../scss/sizes";
+@import "../../scss/values";
 
 .modal-wrapper {
     @include themify($themes) {

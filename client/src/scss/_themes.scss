@@ -63,6 +63,7 @@ $themes: (
     )
 );
 
+// Mixin used in other scss files to apply themed value
 @mixin themify($themes) {
     @each $theme, $map in $themes {
         .theme-#{$theme} & {

@@ -12,24 +12,22 @@ const Signup = () => {
     const onFormSubmit = (firstName, lastName, email, password) => {
         setLoader(true);
         createUser({ firstName, lastName, email, password })
-            .then((res) => {
+            .then(() => {
                 setLoader(false);
                 navigate("/login", { state: { signupSuccess: true } });
             })
             .catch((err) => {
                 console.log(err);
                 setLoader(false);
-                setSignupError("Oops! Something went wrong!");
+                const errMessage = err.response ? err.response.data : "Oops! Something went wrong!";
+                setSignupError(errMessage);
             });
     };
-
-    // Check if user already exists
 
     return <SignupForm
         onFormSubmit={onFormSubmit}
         signupError={signupError}
         loader={loader} />
 };
-// redirect to login after signup
 
 export default Signup;

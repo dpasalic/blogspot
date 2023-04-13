@@ -17,9 +17,11 @@ const useScrollPos = scrollStep => {
     useEffect(() => {
         const glassWrapper = document.querySelector(".glass-wrapper");
 
+        // Bind the event listener
         glassWrapper.addEventListener("scroll", onGlassWrapperScroll, { passive: true });
 
         return () => {
+            // Unbind the event listener on clean up
             glassWrapper.removeEventListener("scroll", onGlassWrapperScroll);
         };
     }, [prevScrollPos]);

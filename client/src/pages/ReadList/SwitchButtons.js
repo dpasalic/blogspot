@@ -21,6 +21,7 @@ const SwitchButtons = ({ isLeftButtonActive, isRightButtonActive, onSwitchLeft, 
         }, 300);
     };
 
+    // Render different set of buttons for desktop and mobile screen
     if (viewportWidth > 960) {
         return <ButtonsForDesktop
             onSwitchButtonClick={onSwitchButtonClick}

@@ -1,3 +1,4 @@
+
 const BlogInteractions = ({ interaction, createInteraction, deleteInteraction, currentBlog }) => {
     const intr = interaction || {};
 

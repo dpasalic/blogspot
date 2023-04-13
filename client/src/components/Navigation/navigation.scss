@@ -1,5 +1,5 @@
 @import "../../scss/themes";
-@import "../../scss/sizes";
+@import "../../scss/values";
 
 .navigation {
     position: sticky;
@@ -132,6 +132,7 @@
 .readlist-notification::after {
     @include themify($themes) {
         background-color: themed("primaryColor");
+        color: themed("secondaryTextColor");
     }
     content: attr(data-readlist-blogs-number);
     position: absolute;

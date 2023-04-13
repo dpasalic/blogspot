@@ -45,11 +45,13 @@ const BlogList = ({
         });
     };
 
+    // On delete button click
     const onBlogDeleteClick = blog => {
         setDeleteModalOpen(true);
         setCurrentDeleteBlog(blog);
     };
 
+    // On delete submit
     const onBlogDeleteSubmit = () => {
         deleteBlog(currentDeleteBlog.id);
         setDeleteModalOpen(false);
@@ -103,7 +105,7 @@ const BlogList = ({
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         user: state.users[state.auth.userId],
         blogs: Object.values(state.blogs),

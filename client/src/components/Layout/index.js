@@ -11,7 +11,7 @@ const Layout = ({ children, theme }) => {
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return { theme: state.theme };
 };
 

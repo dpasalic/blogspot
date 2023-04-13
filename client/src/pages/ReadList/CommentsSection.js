@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { formatTimeAgo } from "../../helpers";
+import TextInput from "../../components/Inputs/TextInput";
 import lightNoCommentSVG from "../../assets/light-no-comment.svg";
 import darkNoCommentSVG from "../../assets/dark-no-comment.svg";
 import verdantNoCommentSVG from "../../assets/verdant-no-comment.svg";
-import TextInput from "../../components/Inputs/TextInput";
 
 const CommentsSection = ({ comments, createComment, getComments, currentBlog, theme }) => {
     const [comment, setComment] = useState("");
@@ -13,6 +13,7 @@ const CommentsSection = ({ comments, createComment, getComments, currentBlog, th
     }, [currentBlog.id])
 
     const renderComments = () => {
+        // Render appropriate illustration when there is zero comments
         if (comments.length === 0) {
             return <img
                 src={theme === "light" ? lightNoCommentSVG :

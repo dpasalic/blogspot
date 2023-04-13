@@ -5,19 +5,21 @@ import { authUser, getUser } from "../actions";
 import Navigation from "../components/Navigation";
 
 // Component that serves as an abstraction layer
-// for protecting routes from users that are not logged in
+// for routes that require user to be logged in
 
-const ProtectedRoute = ({ authUser, getUser, auth, users, children }) => {
+const ProtectedRoute = ({ authUser, getUser, auth, children }) => {
     const navigate = useNavigate();
-    // Getting path using useLocation hook and passing it to login page
-    // so after logging in user is redirected to the desired page
+
     const { pathname, search } = useLocation();
 
-    // Calling authUser action creator that checks and validates JWT token
+    // Call authUser action creator that checks and validates JWT token
     useEffect(() => { authUser() }, []);
 
     useEffect(() => {
         if (auth.isLoggedIn === false) {
+            // When user isnt logged in and tries to access protected route
+            // redirect him to login route and pass the requested route
+            // so after logging in user is automatically redirected to the desired route
             navigate("/login", { state: { requestedPath: pathname + search } });
         } else if (auth.isLoggedIn === true) {
             getUser(auth.userId);
@@ -35,7 +37,7 @@ const ProtectedRoute = ({ authUser, getUser, auth, users, children }) => {
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         auth: state.auth,
         users: state.users

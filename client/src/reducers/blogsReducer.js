@@ -7,6 +7,9 @@ import {
     DELETE_BLOG
 } from "../actions/types";
 
+// Blogs are stored in object instead of array
+// because it is easier to handle data changes
+
 const blogsReducer = (state = {}, action) => {
     switch(action.type) {
         case CREATE_BLOG:

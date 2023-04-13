@@ -14,9 +14,6 @@ const ErrorPage = ({ authUser, theme }) => {
 
     useEffect(() => { authUser() }, []);
 
-    // Continue checking code
-    // Implement readlist notification
-
     return (
         <div className="glass-wrapper">
             <Navigation />
@@ -38,7 +35,7 @@ const ErrorPage = ({ authUser, theme }) => {
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return { theme: state.theme };
 };
 

@@ -3,7 +3,7 @@ export const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 };
 
-// Function for parsing JWT
+// Function for parsing JWT - used for parsing access token stored in local storage
 export const parseJwt = token => {
     let base64Url = token.split('.')[1];
     let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -15,10 +15,12 @@ export const parseJwt = token => {
 };
 
 // Code for formatting timestamps - used for showing comments time passed from creating
+// Relative time format instance
 const formatter = new Intl.RelativeTimeFormat(undefined, {
     numeric: 'auto',
     style: "long"
 });
+// Time divisions
 const DIVISIONS = [
     { amount: 60, name: 'seconds' },
     { amount: 60, name: 'minutes' },
@@ -28,6 +30,7 @@ const DIVISIONS = [
     { amount: 12, name: 'months' },
     { amount: Number.POSITIVE_INFINITY, name: 'years' }
 ];
+// Format function
 export const formatTimeAgo = date => {
     let duration = (date - new Date()) / 1000;
 

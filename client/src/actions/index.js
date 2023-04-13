@@ -126,11 +126,6 @@ export const getBlogs = () => async dispatch => {
     dispatch({ type: GET_BLOGS, payload: response.data });
 };
 
-// AC for inserting blogs that are not fetched through action creator into Redux state
-export const getBlogsToReduxState = (payload) => {
-    return { type: GET_BLOGS, payload: payload };
-};
-
 // AC for editting a blog, used only for increasing interactions count of a blog
 export const editBlog = (id, values) => async dispatch => {
     const response = await edtBlg(id, values);

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { validateSignupFirstSection, validateSignupSecondSection } from "../../helpers";
 import TextInput from "../../components/Inputs/TextInput";
 import PasswordInput from "../../components/Inputs/PasswordInput";
 import EmailInput from "./EmailInput";
 import Buttons from "./Buttons";
 import Loader from "../../components/Loader";
-import { validateSignupFirstSection, validateSignupSecondSection } from "../../helpers";
 import "./signup.scss";
 
 const SignupForm = ({ onFormSubmit, signupError, loader }) => {
@@ -18,6 +18,7 @@ const SignupForm = ({ onFormSubmit, signupError, loader }) => {
     const [switchSection, setSwitchSection] = useState(false);
     const [transitionEnd, setTransitionEnd] = useState(false);
 
+    // Validate first section (firstName and lastName)
     useEffect(() => {
         if (validate.firstSection) {
             const err = validateSignupFirstSection(firstName, lastName);
@@ -25,6 +26,7 @@ const SignupForm = ({ onFormSubmit, signupError, loader }) => {
         }
     }, [firstName, lastName]);
 
+    // Validate second section (email and password)
     useEffect(() => {
         if (validate.secondSection) {
             const err = validateSignupSecondSection(email, password);
@@ -32,9 +34,11 @@ const SignupForm = ({ onFormSubmit, signupError, loader }) => {
         }
     }, [email, password]);
 
-    const onSubmit = (event) => {
-        event.preventDefault();
+    const onSubmit = e => {
+        e.preventDefault();
 
+        // On submit validate only second section because
+        // first section is already validated before switching to second section
         const err = validateSignupSecondSection(email, password);
         if (Object.keys(err).length === 0) {
             onFormSubmit(firstName, lastName, email, password);
@@ -76,7 +80,8 @@ const SignupForm = ({ onFormSubmit, signupError, loader }) => {
                             tabIndex={switchSection ? "-1" : "0"}
                             error={errors.lastName} />
                     </div>
-                    <div className={`section ${switchSectionClassName}`}
+                    <div
+                        className={`section ${switchSectionClassName}`}
                         onTransitionEnd={(e) =>
                             e.propertyName === "transform" ? setTransitionEnd(true) : null}>
                         <EmailInput

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { validateLoginForm } from "../../helpers";
 import TextInput from "../../components/Inputs/TextInput";
 import PasswordInput from "../../components/Inputs/PasswordInput";
 import Loader from "../../components/Loader";
-import { validateLoginForm } from "../../helpers";
 import "./login.scss";
 
 const LoginForm = ({ onFormSubmit, loginError, loader }) => {
@@ -14,9 +14,10 @@ const LoginForm = ({ onFormSubmit, loginError, loader }) => {
 
     const { state } = useLocation();
 
-    const onSubmit = (event) => {
+    const onSubmit = event => {
         event.preventDefault();
 
+        // Activate validation on every input change
         if (!validate) { setValidate(true); }
 
         const errors = validateLoginForm(email, password);
@@ -27,25 +28,31 @@ const LoginForm = ({ onFormSubmit, loginError, loader }) => {
         }
     };
 
+    // Check for errors if validation is active
     useEffect(() => {
         if (validate) {
             const errors = validateLoginForm(email, password);
             setErrors(errors);
         }
     }, [email, password]);
-    
+
     return (
         <div className="login-form-wrapper">
             <h1 className="login-header">Log in</h1>
 
             <form onSubmit={onSubmit} noValidate>
-                // Add message that informs user when session expires
-                // Add message that tells user to log in first to visit protected page
                 {state && state.signupSuccess && !loader && !loginError ?
                     <div className="signup-success">
                         <span>
                             <span className="material-symbols-outlined signup-success-icon">info</span>
                             You signed up successfully!
+                        </span>
+                    </div> : null}
+                {state && state.requestedPath ?
+                    <div className="requested-path">
+                        <span>
+                            <span className="material-symbols-outlined signup-success-icon">info</span>
+                            You need to log in to access requested path!
                         </span>
                     </div> : null}
                 <TextInput

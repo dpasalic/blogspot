@@ -1,19 +1,22 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
-import { setTheme, logOut, addReadingBlog } from "../../actions";
+import { setTheme, logOut } from "../../actions";
+import useScrollPos from "../../hooks/useScrollPos";
+import useViewportDimensions from "../../hooks/useViewportDimensions";
 import SwitchButton from "./SwitchButton";
 import HorizontalMenu from "./HorizontalMenu";
 import DropdownMenu from "./DropdownMenu";
 import VerticalMenu from "./VerticalMenu";
-import useScrollPos from "../../hooks/useScrollPos";
-import useViewportDimensions from "../../hooks/useViewportDimensions";
 import lightLogo from "../../assets/light-logo.png";
 import darkLogo from "../../assets/dark-logo.png";
 import verdantLogo from "../../assets/verdant-logo.png";
 import "./navigation.scss";
 
-const Navigation = ({ setTheme, logOut, isLoggedIn, userId, theme, currentBlog, numberOfBlogsInReadlist }) => {
+const Navigation = ({
+    setTheme, logOut, isLoggedIn, userId,
+    theme, currentBlog, numberOfBlogsInReadlist
+}) => {
     const SCROLL_STEP = 45;
     const scrollPos = useScrollPos(SCROLL_STEP);
     const viewportDims = useViewportDimensions();
@@ -75,7 +78,7 @@ const Navigation = ({ setTheme, logOut, isLoggedIn, userId, theme, currentBlog, 
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         isLoggedIn: state.auth.isLoggedIn,
         userId: state.auth.userId,

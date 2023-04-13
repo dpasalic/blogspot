@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // Hook that detects swipes left and right
-// Used with mobile screens for switching blogs in readlist
+// Used with mobile screens for switching blogs in Readlist
 
 const useSwipe = (onSwitchLeft, onSwitchRight) => {
     const [touchStart, setTouchStart] = useState(null);

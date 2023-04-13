@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { getBlogAndUI, addReadingBlog, addAsRead, addToReadList, createInteraction, deleteInteraction, createComment, getComments } from "../../actions";
 import useSwipe from "../../hooks/useSwipe";
 import ListIndicator from "./ListIndicator";
@@ -12,8 +12,10 @@ import SkeletonLoader from "./SkeletonLoader";
 import "./read-list.scss";
 
 const ReadList = ({
-    getBlogAndUI, addReadingBlog, addAsRead, addToReadList, createInteraction, deleteInteraction, createComment, getComments,
-    loggedUser, theme, currentBlog, blogAuthor, readBlogs, blogsToRead, interaction, comments
+    getBlogAndUI, addReadingBlog, addAsRead, createInteraction,
+    deleteInteraction, createComment, getComments,
+    loggedUser, theme, currentBlog, blogAuthor,
+    readBlogs, blogsToRead, interaction, comments
 }) => {
     const [blogsArr, setBlogsArr] = useState([]);
     const [arrPosition, setArrPosition] = useState(0);
@@ -29,25 +31,27 @@ const ReadList = ({
     const isBlogOfLoggedUser = loggedUser === { ...currentBlog }.userId;
 
     useEffect(() => {
+        // Fetching blog on direct url access (not through blog list page)
+        // Added slight timeout to showcase skeleton loading
         if (blogId && !currentBlog) {
-            // Fetching blog on direct url access (not through blog list page)
-            // Added slight timeout to showcase skeleton loading
             setTimeout(() => getBlogAndUI(blogId), 1500);
         }
-
     }, []);
 
     useEffect(() => {
+        // Scroll blog into view on every switch
         readListWrapperRef.current.scrollIntoView({ behavior: "smooth" });
     }, [arrPosition]);
 
     useEffect(() => {
-        // Condition that checks for browser back and forward
-        // path changes
+        // Check if user clicked back or forward browser buttons
         if (currentBlog && blogId != currentBlog.id) {
+            // Set blog as current blog that has same id as the one from url params
             const newReadingBlog = blogsArr.find(bl => bl.id == blogId);
             addReadingBlog(newReadingBlog);
 
+            // Find next position in the array of blogs
+            // - back or forward one place and switch accordingly
             const nextArrPosition = blogsArr.findIndex(bl => bl.id == blogId);
             if (nextArrPosition < arrPosition) {
                 setLeftSwitchAnimation("switch-animation");
@@ -66,13 +70,18 @@ const ReadList = ({
             }
         }
 
+        // Set array of blogs on first load
         if (currentBlog && blogsArr.length === 0) {
+            // In some cases readBlogs and blogsToRead contain currentBlog
+            // so they need to be removed
             const readBlogsDistinct = Object.values(readBlogs).filter(e => e.id !== currentBlog.id);
             const blogsToReadDistinct = Object.values(blogsToRead).filter(e => e.id !== currentBlog.id);
+
             setBlogsArr([...readBlogsDistinct, currentBlog, ...blogsToReadDistinct]);
             setArrPosition(readBlogsDistinct.length);
         }
 
+        // Add currentBlog as read
         if (currentBlog && !(readBlogs.find(e => e.id === currentBlog.id))) {
             addAsRead(currentBlog);
         }
@@ -84,16 +93,19 @@ const ReadList = ({
         }
 
         if (arrPosition > 0) {
-            // using object for switch click value to
-            // force react to rerender ListIndicator component
-            // primitive value of "left" would not rerender consecutive lefy clicks
             setLeftSwitchAnimation("switch-animation");
             setTimeout(() => setLeftSwitchAnimation(""), 750);
 
             setTimeout(() => {
+                // Using object as switchClick value to
+                // force React to rerender ListIndicator component
+                // Otherwise, using primitive value (e.g. string "left"),
+                // would not cause rerender on consecutive clicks to the same side (e.g. left)
                 setSwitchClick({ left: true });
                 addReadingBlog(blogsArr[arrPosition - 1]);
                 setArrPosition(arrPosition - 1);
+                // Add blog path to routing history
+                // to allow browser buttons back and forward switching
                 navigate(`/readlist?blogId=${blogsArr[arrPosition - 1].id}`);
             }, 375);
         }
@@ -116,11 +128,8 @@ const ReadList = ({
             }, 375);
         }
     };
-    const { onTouchStart, onTouchMove, onTouchEnd } = useSwipe(onSwitchLeft, onSwitchRight);
 
-    // find appropriate illustration
-    // for empty readlist
-    // update skeleton load - add interactions and comments
+    const { onTouchStart, onTouchMove, onTouchEnd } = useSwipe(onSwitchLeft, onSwitchRight);
 
     return (
         <div ref={readListWrapperRef} className="read-list-wrapper">
@@ -133,14 +142,15 @@ const ReadList = ({
             {blogsArr.length > 1 ?
                 <ListIndicator
                     list={blogsArr}
-                    currentPosition={arrPosition}
                     readBlogsLength={Object.values(readBlogs).filter(e => e.id !== currentBlog.id).length}
                     switchClick={switchClick} /> : null}
+            
             <SwitchButtons
                 isLeftButtonActive={arrPosition > 0}
                 isRightButtonActive={arrPosition < blogsArr.length - 1}
                 onSwitchLeft={onSwitchLeft}
                 onSwitchRight={onSwitchRight} />
+            
             <div className={`switch-animation-container ${leftSwitchAnimation || rightSwitchAnimation ? "" : "hide-switch-animation-container"}`}>
                 <div className="switch-animation-wrapper switch-animation-left-wrapper">
                     <div className={`switch-animation-circle ${leftSwitchAnimation}`}></div>

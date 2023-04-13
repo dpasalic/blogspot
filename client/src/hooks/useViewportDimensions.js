@@ -17,9 +17,11 @@ const useViewportDimensions = () => {
     const onWindowResize = () => setViewportDims(getViewportDims());
 
     useEffect(() => {
+        // Bind the event listener
         window.addEventListener("resize", onWindowResize);
 
         return () => {
+            // Unbind the event listener on clean up
             window.removeEventListener("resize", onWindowResize);
         };
     }, []);
