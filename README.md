@@ -1,7 +1,7 @@
 
 # **BLOGSPOT**  
 
-## Mock app for making, sharing and exploring blogs  
+## Mock app for creating, sharing and exploring blogs  
 This is my first big project and I put a lot of love in it.  
 It is a web app with implemented CRUD operations for blogs and users using fake back-end. Focus was on making pixel perfect UI that looks great with smooth animations.  
 &nbsp;

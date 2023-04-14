@@ -15,14 +15,6 @@
       "role": "user",
       "firstName": "Demir",
       "lastName": "Pasalic"
-    },
-    {
-      "email": "hehe@mailg.com",
-      "password": "$2a$10$Nvtx1sDcN4321bzOG.rs.ulEKUxAwfeTXyjS1xVBBCvVabQCaV9QW",
-      "firstName": "hehe",
-      "lastName": "hehe",
-      "id": 75597,
-      "role": "user"
     }
   ],
   "blogs": [
@@ -39,7 +31,7 @@
     {
       "id": 431678,
       "title": "Everything begins and ends in your mind",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
+      "body": "The mind is a powerful tool that can shape our entire experience of the world. It is the seat of our consciousness, and it is responsible for our perceptions, thoughts, and emotions. Our minds have the ability to create and imagine entire worlds, to remember past events, and to plan for the future. In many ways, everything begins and ends in our minds.\n\nThe way we think about things can have a profound impact on our lives. Our thoughts can shape our actions, and our actions can shape our reality. If we think positively, we are more likely to have positive experiences. If we think negatively, we are more likely to have negative experiences. This is because our thoughts have the power to influence our behavior and our perceptions. For example, if we are feeling anxious about an upcoming event, our thoughts might race with all the possible negative outcomes. We might imagine all the things that could go wrong, and our anxiety might spiral out of control. However, if we consciously shift our focus to positive outcomes, we can calm our mind and feel more confident about the situation. This shift in mindset can change our entire experience of the event. Similarly, if we have a negative outlook on life, we are more likely to experience negative events.\n\nOur negative thoughts can become a self-fulfilling prophecy, as we begin to see the world through a lens of negativity. On the other hand, if we have a positive outlook on life, we are more likely to experience positive events. Our positive thoughts can attract positive experiences, as we begin to see the world in a more positive light. Ultimately, everything begins and ends in our minds. Our thoughts and perceptions shape our reality, and our mindset can have a profound impact on our experiences. By cultivating a positive mindset and focusing on positive outcomes, we can create a more fulfilling and enjoyable life. So, it is important to be mindful of our thoughts and to choose them wisely. With the power of our minds, we have the ability to create the life we want to live.",
       "userId": 99999,
       "createdAt": 1657696488,
       "likes": 0,
@@ -48,9 +40,9 @@
     },
     {
       "id": 720195,
-      "title": "Ide gas meeen",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
-      "userId": 11111,
+      "title": "The shortest story ever told",
+      "body": "The shortest story ever told is often attributed to the writer Ernest Hemingway. It is said that he was once challenged to write a complete story in just six words. Hemingway's response was: 'For sale: baby shoes, never worn'.",
+      "userId": 99999,
       "createdAt": 1657696489,
       "likes": 0,
       "dislikes": 0,
@@ -59,21 +51,21 @@
     {
       "id": 400129,
       "title": "I love you",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam quam, consectetur a justo a, molestie pretium lectus. Fusce turpis justo, varius a pellentesque id, viverra id massa. In ac arcu vehicula erat condimentum cursus ut eu nunc. In id magna mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur consectetur ex sed vehicula. Integer malesuada nibh nec est eleifend, eget feugiat dui rutrum. Morbi porttitor, dolor ut mollis lobortis, lectus ipsum aliquam odio, a venenatis est leo id libero. Duis hendrerit sed odio ut congue. Aenean sem eros, rutrum sed tincidunt ac, iaculis et tortor. Nam non vehicula nisi. Donec euismod mollis fringilla. Integer sollicitudin rutrum erat, at facilisis velit. Nulla pellentesque sapien ac efficitur iaculis. Cras et tristique arcu. Curabitur in nulla felis.",
-      "userId": 99999,
+      "body": "Hi there, I just wanted to say I love you!",
+      "userId": 11111,
       "createdAt": 1657696490,
       "likes": 2,
       "dislikes": 0,
       "comments": 0
     },
     {
-      "title": "hi love, i just wanted to say hi",
-      "body": "hi",
-      "id": 203560,
-      "userId": 11111,
-      "createdAt": "2023-02-07T22:40:27.636Z",
+      "title": "Story of Manchester United",
+      "body": "Manchester United, also known as Man Utd or simply United, is one of the most popular and successful football clubs in the world. Founded in 1878, the club has a rich history and a loyal fan base that stretches around the globe.\n\nThe team plays its home matches at Old Trafford, a stadium that has become one of the most iconic in football. With a capacity of over 75,000, it is the largest club football stadium in the United Kingdom and has hosted numerous high-profile matches and events over the years.\n\nMan Utd has won a record 20 English top-flight titles, as well as three European Cups/Champions Leagues, one UEFA Cup Winners' Cup, one UEFA Super Cup, one Intercontinental Cup, and one FIFA Club World Cup. The club has also won numerous domestic cup competitions, including the FA Cup and the League Cup.\n\nOver the years, the club has been home to many legendary players, including George Best, Bobby Charlton, Eric Cantona, David Beckham, Cristiano Ronaldo, and Wayne Rooney. The team has also been managed by some of the most successful coaches in the sport, including Sir Matt Busby and Sir Alex Ferguson.\n\nOne of the defining characteristics of Manchester United is the passion and loyalty of its fans. The club has a global following, with supporters from all over the world who share a love for the team and its rich history. The team's fans are known for their chants, flags, and banners, which create an electric atmosphere at Old Trafford and at away matches.\n\nIn recent years, the club has experienced both highs and lows on the pitch. After a period of dominance under Sir Alex Ferguson, the team struggled to maintain its success and went through a period of transition. However, under the guidance of current manager Ole Gunnar Solskjaer, the team has shown signs of returning to its former glory, with a strong squad of talented players and an exciting style of play.\n\nOverall, Manchester United is a club with a storied past and a bright future. Its success on the pitch and its passionate fan base have made it one of the most iconic football clubs in the world, and its influence on the sport is sure to be felt for many years to come.",
+      "id": 227374,
+      "userId": 99999,
+      "createdAt": 1681431694.556,
       "likes": 0,
-      "dislikes": 1,
+      "dislikes": 0,
       "comments": 0
     }
   ],
@@ -94,7 +86,7 @@
     },
     {
       "id": 9990099,
-      "body": "I tako malo po malo!",
+      "body": "Six words was more than enough",
       "blogId": 720195,
       "userId": 99999,
       "createdAt": 1657804478
@@ -124,14 +116,6 @@
       "liked": true,
       "disliked": false,
       "createdAt": 1680143048.761
-    },
-    {
-      "id": 73516565,
-      "userId": 99999,
-      "blogId": 203560,
-      "liked": false,
-      "disliked": true,
-      "createdAt": 1681077148.462
     }
   ]
 }
